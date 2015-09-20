@@ -1,7 +1,7 @@
 package br.com.compiler.compiler;
 
 public enum DataType {
-	INT("I"), FLOAT("F"), STRING("Ljava/lang/String;");
+	BOOLEAN("Z"), INT("I"), FLOAT("F"), STRING("Ljava/lang/String;");
 
 	private final String jvmType;
 

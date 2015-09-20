@@ -208,7 +208,8 @@ public class CompilerTest {
 				example("operators/or-skip-right", "1" + System.lineSeparator()
 						+ "1" + System.lineSeparator()),
 
-				{ "print", "print(42);", "42" } };
+				{ "print", "print(42);", "42" },
+				example("unary/unary-plus-plus", "1")};
 	}
 
 	private static String[] example(String name, String expectedResult)
@@ -226,9 +227,9 @@ public class CompilerTest {
 
 	private String compileAndRun(String code) throws Exception {
 		code = Main.compile(new ANTLRInputStream(code));
-		// System.out.println(code);
-		// System.out
-		// .println("******************************************************************************************");
+		System.out.println(code);
+		System.out
+				.println("******************************************************************************************");
 		ClassFile classFile = new ClassFile();
 		classFile.readJasmin(new StringReader(code), "", false);
 		Path outputPath = tempDir.resolve(classFile.getClassName() + ".class");

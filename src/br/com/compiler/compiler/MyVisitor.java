@@ -8,6 +8,8 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 import br.com.compiler.compiler.exceptions.UndeclaredVariableException;
 import br.com.compiler.compiler.exceptions.UndefinedFunctionException;
+import br.com.compiler.compiler.exceptions.UnexpectedToken;
+import br.com.compiler.compiler.exceptions.UnknownVariableType;
 import br.com.compiler.compiler.exceptions.VariableAlreadyDefinedException;
 import br.com.compiler.parser.DemoBaseVisitor;
 import br.com.compiler.parser.DemoParser.AndContext;
@@ -23,17 +25,19 @@ import br.com.compiler.parser.DemoParser.MultContext;
 import br.com.compiler.parser.DemoParser.NumberContext;
 import br.com.compiler.parser.DemoParser.OrContext;
 import br.com.compiler.parser.DemoParser.PlusContext;
+import br.com.compiler.parser.DemoParser.PrimitiveTypeContext;
 import br.com.compiler.parser.DemoParser.PrintContext;
 import br.com.compiler.parser.DemoParser.PrintlnContext;
 import br.com.compiler.parser.DemoParser.ProgramContext;
 import br.com.compiler.parser.DemoParser.RelationalContext;
 import br.com.compiler.parser.DemoParser.StringContext;
+import br.com.compiler.parser.DemoParser.UnaryContext;
 import br.com.compiler.parser.DemoParser.VarDeclarationContext;
 import br.com.compiler.parser.DemoParser.VariableContext;
 
 public class MyVisitor extends DemoBaseVisitor<String> {
 
-	private Map<String, Integer> variables = new HashMap<String, Integer>();
+	private Map<Variable, Integer> variables = new HashMap<Variable, Integer>();
 	private JvmStack jvmStack = new JvmStack();
 	private final FunctionList definedFunctions;
 	private int branchCounter = 0;
@@ -66,6 +70,34 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 				+ argumentInstruction + "\n"
 				+ "	invokevirtual java/io/PrintStream/print("
 				+ type.getJvmType() + ")V\n";
+	}
+
+	@Override
+	public String visitUnary(UnaryContext ctx) {
+		// jvmStack.push(DataType.INT);
+		// String instructions = "iload " + requiredVariableIndex(ctx.varName);
+		// DataType pop = jvmStack.pop();
+		// String op = "";
+		// if (pop == DataType.FLOAT) {
+		// jvmStack.push(DataType.FLOAT);
+		// op = "fadd";
+		// } else {
+		// jvmStack.push(DataType.INT);
+		// op = "iadd";
+		// }
+		// int index = requiredVariableIndex(ctx.varName);
+		// return instructions + "\nldc 1\n" + op + "\nistore " + index
+		// + "\niload " + index;
+
+		int index = requiredVariableIndex(ctx.varName);
+		switch (ctx.operation.getText()) {
+		case "++":
+			return "iinc " + index + " 1";
+		case "--":
+			return "iinc " + index + " -1";
+		default:
+			throw new UnexpectedToken(ctx.operation);
+		}
 	}
 
 	@Override
@@ -198,11 +230,18 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitVarDeclaration(VarDeclarationContext ctx) {
-		if (variables.containsKey(ctx.varName.getText())) {
+		if (variables.containsKey(new Variable(null, ctx.varName.getText()))) {
 			throw new VariableAlreadyDefinedException(ctx.varName);
 		}
-		variables.put(ctx.varName.getText(), variables.size());
-		return "";
+		variables.put(new Variable(identifyVariableDataType(ctx.type),
+				ctx.varName.getText()), variables.size());
+		String instructions = "";
+		if (ctx.expr != null) {
+			instructions = visit(ctx.expr) + "\n" + "istore "
+					+ requiredVariableIndex(ctx.varName);
+			jvmStack.pop();
+		}
+		return instructions;
 	}
 
 	@Override
@@ -244,9 +283,9 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitFunctionDefinition(FunctionDefinitionContext ctx) {
-		Map<String, Integer> oldVariables = variables;
+		Map<Variable, Integer> oldVariables = variables;
 		JvmStack oldJvmStack = jvmStack;
-		variables = new HashMap<String, Integer>();
+		variables = new HashMap<Variable, Integer>();
 		jvmStack = new JvmStack();
 		visit(ctx.params);
 		String statementInstructions = visit(ctx.statements);
@@ -307,11 +346,26 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 	}
 
 	private int requiredVariableIndex(Token varNameToken) {
-		Integer varIndex = variables.get(varNameToken.getText());
+		Integer varIndex = variables.get(new Variable(null, varNameToken
+				.getText()));
 		if (varIndex == null) {
 			throw new UndeclaredVariableException(varNameToken);
 		}
 		return varIndex;
+	}
+
+	private DataType identifyVariableDataType(PrimitiveTypeContext ctx) {
+		switch (ctx.getText()) {
+		case "int":
+			return DataType.INT;
+		case "string":
+			return DataType.STRING;
+		case "float":
+			return DataType.FLOAT;
+		case "boolean":
+			return DataType.BOOLEAN;
+		}
+		throw new UnknownVariableType(ctx.type);
 	}
 
 	@Override
