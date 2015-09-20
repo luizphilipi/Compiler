@@ -1,0 +1,6 @@
+int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(0) && x(1));

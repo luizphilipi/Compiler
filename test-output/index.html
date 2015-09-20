@@ -1,0 +1,1981 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Default_suite">
+              <span class="suite-name border-passed">Default suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
+                    <span>testng-customsuite.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Default_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Default_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Default_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Default_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Default_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Default_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">45 methods,   45 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice">compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable">compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable">compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction">compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable">compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(lower than or equal true, println(2 &lt;= 2);, 1
+)">runningCode_outputsExpectedText(lower than or equal true, println(2 <= 2);, 1
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(or left true, println(1 || 0);, 1
+)">runningCode_outputsExpectedText(or left true, println(1 || 0);, 1
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(lower than false, println(2 &lt; 2);, 0
+)">runningCode_outputsExpectedText(lower than false, println(2 < 2);, 0
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(plus and times, println(2+3*3);, 11
+)">runningCode_outputsExpectedText(plus and times, println(2+3*3);, 11
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(r_float/print_float, println(15.561);, 15.561
+)">runningCode_outputsExpectedText(r_float/print_float, println(15.561);, 15.561
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(int parameters, int add(int a, int b) {
+	return a+b;
+}
+println(add(5,8));, 13
+)">runningCode_outputsExpectedText(int parameters, int add(int a, int b) {
+	return a+b;
+}
+println(add(5,8));, 13
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(times, println(2*3);, 6
+)">runningCode_outputsExpectedText(times, println(2*3);, 6
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(int variable, int foo; foo = 42; println(foo);, 42
+)">runningCode_outputsExpectedText(int variable, int foo; foo = 42; println(foo);, 42
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(r_float/int_plus_float, println(5.5+3.3);, 8.8
+)">runningCode_outputsExpectedText(r_float/int_plus_float, println(5.5+3.3);, 8.8
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(add two vars parameter, int a; int b; a = 2; b = 5; println(a+b);, 7
+)">runningCode_outputsExpectedText(add two vars parameter, int a; int b; a = 2; b = 5; println(a+b);, 7
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(simple function, int randomNumber() {
+int i;
+i = 4;
+return i;
+}
+println(randomNumber());, 4
+)">runningCode_outputsExpectedText(simple function, int randomNumber() {
+int i;
+i = 4;
+return i;
+}
+println(randomNumber());, 4
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(and left false, println(0 &amp;&amp; 1);, 0
+)">runningCode_outputsExpectedText(and left false, println(0 && 1);, 0
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(divide, println(6/2);, 3
+)">runningCode_outputsExpectedText(divide, println(6/2);, 3
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(scopes, int randomNumber() {
+	int i;
+	i = 4;
+	return i;
+}
+int i;
+i = 42;
+println(randomNumber());
+pr...)">runningCode_outputsExpectedText(scopes, int randomNumber() {
+	int i;
+	i = 4;
+	return i;
+}
+int i;
+i = 42;
+println(randomNumber());
+pr...)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(or right true, println(0 || 1);, 1
+)">runningCode_outputsExpectedText(or right true, println(0 || 1);, 1
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(operators/or-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(1) || x(0));, 1
+1
+)">runningCode_outputsExpectedText(operators/or-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(1) || x(0));, 1
+1
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(print, print(42);, 42)">runningCode_outputsExpectedText(print, print(42);, 42)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(minus and times, println(9-2*3);, 3
+)">runningCode_outputsExpectedText(minus and times, println(9-2*3);, 3
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(operators/and-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(0) &amp;&amp; x(1));, 0
+0
+)">runningCode_outputsExpectedText(operators/and-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(0) && x(1));, 0
+0
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(divide and times, println(8/2*4);, 16
+)">runningCode_outputsExpectedText(divide and times, println(8/2*4);, 16
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(divide and truncate, println(7/2);, 3
+)">runningCode_outputsExpectedText(divide and truncate, println(7/2);, 3
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(greater than false, println(2 &gt; 2);, 0
+)">runningCode_outputsExpectedText(greater than false, println(2 > 2);, 0
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(or false, println(0 || 0);, 0
+)">runningCode_outputsExpectedText(or false, println(0 || 0);, 0
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(overloading, int x() { return 0; }
+int x(int a) { return a; }
+println(x());
+println(x(42));, 0
+42
+)">runningCode_outputsExpectedText(overloading, int x() { return 0; }
+int x(int a) { return a; }
+println(x());
+println(x(42));, 0
+42
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(and right false, println(1 &amp;&amp; 0);, 0
+)">runningCode_outputsExpectedText(and right false, println(1 && 0);, 0
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(branch/if_int_true, if (1) {
+  println(81);
+} else {
+  println(42);
+}, 81
+)">runningCode_outputsExpectedText(branch/if_int_true, if (1) {
+  println(81);
+} else {
+  println(42);
+}, 81
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(lower than or equal false, println(3 &lt;= 2);, 0
+)">runningCode_outputsExpectedText(lower than or equal false, println(3 <= 2);, 0
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(minus, println(3-2);, 1
+)">runningCode_outputsExpectedText(minus, println(3-2);, 1
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(greater than or equal true, println(2 &gt;= 2);, 1
+)">runningCode_outputsExpectedText(greater than or equal true, println(2 >= 2);, 1
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(add var and constant parameter, int foo; foo = 42; println(foo+2);, 44
+)">runningCode_outputsExpectedText(add var and constant parameter, int foo; foo = 42; println(foo+2);, 44
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(and true, println(1 &amp;&amp; 1);, 1
+)">runningCode_outputsExpectedText(and true, println(1 && 1);, 1
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(multiple statements, println(1); println(2);, 1
+2
+)">runningCode_outputsExpectedText(multiple statements, println(1); println(2);, 1
+2
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(greater than or equal false, println(1 &gt;= 2);, 0
+)">runningCode_outputsExpectedText(greater than or equal false, println(1 >= 2);, 0
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(chained plus, println(1+2+42);, 45
+)">runningCode_outputsExpectedText(chained plus, println(1+2+42);, 45
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(if int false, if (0) {
+	println(81);
+} else {
+	println(42);
+}, 42
+)">runningCode_outputsExpectedText(if int false, if (0) {
+	println(81);
+} else {
+	println(42);
+}, 42
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(string/print_string, print(&quot;teste&quot;);, teste)">runningCode_outputsExpectedText(string/print_string, print("teste");, teste)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(plus, println(1+2);, 3
+)">runningCode_outputsExpectedText(plus, println(1+2);, 3
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(lower than true, println(1 &lt; 2);, 1
+)">runningCode_outputsExpectedText(lower than true, println(1 < 2);, 1
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(greater than true, println(3 &gt; 2);, 1
+)">runningCode_outputsExpectedText(greater than true, println(3 > 2);, 1
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="br.com.compiler.compiler.CompilerTest" hash-for-method="runningCode_outputsExpectedText(return only function, int randomNumber() { return 4; } println(randomNumber());, 4
+)">runningCode_outputsExpectedText(return only function, int randomNumber() { return 4; } println(randomNumber());, 4
+)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Default_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">br.com.compiler.compiler.CompilerTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice">
+                  </a> <!-- compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice -->
+                  <span class="method-name">compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable">
+                  </a> <!-- compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable -->
+                  <span class="method-name">compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable">
+                  </a> <!-- compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable -->
+                  <span class="method-name">compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction">
+                  </a> <!-- compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction -->
+                  <span class="method-name">compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable">
+                  </a> <!-- compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable -->
+                  <span class="method-name">compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(lower than or equal true, println(2 &lt;= 2);, 1
+)">
+                  </a> <!-- runningCode_outputsExpectedText(lower than or equal true, println(2 <= 2);, 1
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(lower than or equal true, println(2 <= 2);, 1
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(or left true, println(1 || 0);, 1
+)">
+                  </a> <!-- runningCode_outputsExpectedText(or left true, println(1 || 0);, 1
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(or left true, println(1 || 0);, 1
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(lower than false, println(2 &lt; 2);, 0
+)">
+                  </a> <!-- runningCode_outputsExpectedText(lower than false, println(2 < 2);, 0
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(lower than false, println(2 < 2);, 0
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(plus and times, println(2+3*3);, 11
+)">
+                  </a> <!-- runningCode_outputsExpectedText(plus and times, println(2+3*3);, 11
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(plus and times, println(2+3*3);, 11
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(r_float/print_float, println(15.561);, 15.561
+)">
+                  </a> <!-- runningCode_outputsExpectedText(r_float/print_float, println(15.561);, 15.561
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(r_float/print_float, println(15.561);, 15.561
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(int parameters, int add(int a, int b) {
+	return a+b;
+}
+println(add(5,8));, 13
+)">
+                  </a> <!-- runningCode_outputsExpectedText(int parameters, int add(int a, int b) {
+	return a+b;
+}
+println(add(5,8));, 13
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(int parameters, int add(int a, int b) {
+	return a+b;
+}
+println(add(5,8));, 13
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(times, println(2*3);, 6
+)">
+                  </a> <!-- runningCode_outputsExpectedText(times, println(2*3);, 6
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(times, println(2*3);, 6
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(int variable, int foo; foo = 42; println(foo);, 42
+)">
+                  </a> <!-- runningCode_outputsExpectedText(int variable, int foo; foo = 42; println(foo);, 42
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(int variable, int foo; foo = 42; println(foo);, 42
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(r_float/int_plus_float, println(5.5+3.3);, 8.8
+)">
+                  </a> <!-- runningCode_outputsExpectedText(r_float/int_plus_float, println(5.5+3.3);, 8.8
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(r_float/int_plus_float, println(5.5+3.3);, 8.8
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(add two vars parameter, int a; int b; a = 2; b = 5; println(a+b);, 7
+)">
+                  </a> <!-- runningCode_outputsExpectedText(add two vars parameter, int a; int b; a = 2; b = 5; println(a+b);, 7
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(add two vars parameter, int a; int b; a = 2; b = 5; println(a+b);, 7
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(simple function, int randomNumber() {
+int i;
+i = 4;
+return i;
+}
+println(randomNumber());, 4
+)">
+                  </a> <!-- runningCode_outputsExpectedText(simple function, int randomNumber() {
+int i;
+i = 4;
+return i;
+}
+println(randomNumber());, 4
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(simple function, int randomNumber() {
+int i;
+i = 4;
+return i;
+}
+println(randomNumber());, 4
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(and left false, println(0 &amp;&amp; 1);, 0
+)">
+                  </a> <!-- runningCode_outputsExpectedText(and left false, println(0 && 1);, 0
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(and left false, println(0 && 1);, 0
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(divide, println(6/2);, 3
+)">
+                  </a> <!-- runningCode_outputsExpectedText(divide, println(6/2);, 3
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(divide, println(6/2);, 3
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(scopes, int randomNumber() {
+	int i;
+	i = 4;
+	return i;
+}
+int i;
+i = 42;
+println(randomNumber());
+pr...)">
+                  </a> <!-- runningCode_outputsExpectedText(scopes, int randomNumber() {
+	int i;
+	i = 4;
+	return i;
+}
+int i;
+i = 42;
+println(randomNumber());
+pr...) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(scopes, int randomNumber() {
+	int i;
+	i = 4;
+	return i;
+}
+int i;
+i = 42;
+println(randomNumber());
+println(i);, 4
+42
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(or right true, println(0 || 1);, 1
+)">
+                  </a> <!-- runningCode_outputsExpectedText(or right true, println(0 || 1);, 1
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(or right true, println(0 || 1);, 1
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(operators/or-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(1) || x(0));, 1
+1
+)">
+                  </a> <!-- runningCode_outputsExpectedText(operators/or-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(1) || x(0));, 1
+1
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(operators/or-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(1) || x(0));, 1
+1
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(print, print(42);, 42)">
+                  </a> <!-- runningCode_outputsExpectedText(print, print(42);, 42) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(print, print(42);, 42)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(minus and times, println(9-2*3);, 3
+)">
+                  </a> <!-- runningCode_outputsExpectedText(minus and times, println(9-2*3);, 3
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(minus and times, println(9-2*3);, 3
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(operators/and-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(0) &amp;&amp; x(1));, 0
+0
+)">
+                  </a> <!-- runningCode_outputsExpectedText(operators/and-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(0) && x(1));, 0
+0
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(operators/and-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(0) && x(1));, 0
+0
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(divide and times, println(8/2*4);, 16
+)">
+                  </a> <!-- runningCode_outputsExpectedText(divide and times, println(8/2*4);, 16
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(divide and times, println(8/2*4);, 16
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(divide and truncate, println(7/2);, 3
+)">
+                  </a> <!-- runningCode_outputsExpectedText(divide and truncate, println(7/2);, 3
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(divide and truncate, println(7/2);, 3
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(greater than false, println(2 &gt; 2);, 0
+)">
+                  </a> <!-- runningCode_outputsExpectedText(greater than false, println(2 > 2);, 0
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(greater than false, println(2 > 2);, 0
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(or false, println(0 || 0);, 0
+)">
+                  </a> <!-- runningCode_outputsExpectedText(or false, println(0 || 0);, 0
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(or false, println(0 || 0);, 0
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(overloading, int x() { return 0; }
+int x(int a) { return a; }
+println(x());
+println(x(42));, 0
+42
+)">
+                  </a> <!-- runningCode_outputsExpectedText(overloading, int x() { return 0; }
+int x(int a) { return a; }
+println(x());
+println(x(42));, 0
+42
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(overloading, int x() { return 0; }
+int x(int a) { return a; }
+println(x());
+println(x(42));, 0
+42
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(and right false, println(1 &amp;&amp; 0);, 0
+)">
+                  </a> <!-- runningCode_outputsExpectedText(and right false, println(1 && 0);, 0
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(and right false, println(1 && 0);, 0
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(branch/if_int_true, if (1) {
+  println(81);
+} else {
+  println(42);
+}, 81
+)">
+                  </a> <!-- runningCode_outputsExpectedText(branch/if_int_true, if (1) {
+  println(81);
+} else {
+  println(42);
+}, 81
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(branch/if_int_true, if (1) {
+  println(81);
+} else {
+  println(42);
+}, 81
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(lower than or equal false, println(3 &lt;= 2);, 0
+)">
+                  </a> <!-- runningCode_outputsExpectedText(lower than or equal false, println(3 <= 2);, 0
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(lower than or equal false, println(3 <= 2);, 0
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(minus, println(3-2);, 1
+)">
+                  </a> <!-- runningCode_outputsExpectedText(minus, println(3-2);, 1
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(minus, println(3-2);, 1
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(greater than or equal true, println(2 &gt;= 2);, 1
+)">
+                  </a> <!-- runningCode_outputsExpectedText(greater than or equal true, println(2 >= 2);, 1
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(greater than or equal true, println(2 >= 2);, 1
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(add var and constant parameter, int foo; foo = 42; println(foo+2);, 44
+)">
+                  </a> <!-- runningCode_outputsExpectedText(add var and constant parameter, int foo; foo = 42; println(foo+2);, 44
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(add var and constant parameter, int foo; foo = 42; println(foo+2);, 44
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(and true, println(1 &amp;&amp; 1);, 1
+)">
+                  </a> <!-- runningCode_outputsExpectedText(and true, println(1 && 1);, 1
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(and true, println(1 && 1);, 1
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(multiple statements, println(1); println(2);, 1
+2
+)">
+                  </a> <!-- runningCode_outputsExpectedText(multiple statements, println(1); println(2);, 1
+2
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(multiple statements, println(1); println(2);, 1
+2
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(greater than or equal false, println(1 &gt;= 2);, 0
+)">
+                  </a> <!-- runningCode_outputsExpectedText(greater than or equal false, println(1 >= 2);, 0
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(greater than or equal false, println(1 >= 2);, 0
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(chained plus, println(1+2+42);, 45
+)">
+                  </a> <!-- runningCode_outputsExpectedText(chained plus, println(1+2+42);, 45
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(chained plus, println(1+2+42);, 45
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(if int false, if (0) {
+	println(81);
+} else {
+	println(42);
+}, 42
+)">
+                  </a> <!-- runningCode_outputsExpectedText(if int false, if (0) {
+	println(81);
+} else {
+	println(42);
+}, 42
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(if int false, if (0) {
+	println(81);
+} else {
+	println(42);
+}, 42
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(string/print_string, print(&quot;teste&quot;);, teste)">
+                  </a> <!-- runningCode_outputsExpectedText(string/print_string, print("teste");, teste) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(string/print_string, print("teste");, teste)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(plus, println(1+2);, 3
+)">
+                  </a> <!-- runningCode_outputsExpectedText(plus, println(1+2);, 3
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(plus, println(1+2);, 3
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(lower than true, println(1 &lt; 2);, 1
+)">
+                  </a> <!-- runningCode_outputsExpectedText(lower than true, println(1 < 2);, 1
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(lower than true, println(1 < 2);, 1
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(greater than true, println(3 &gt; 2);, 1
+)">
+                  </a> <!-- runningCode_outputsExpectedText(greater than true, println(3 > 2);, 1
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(greater than true, println(3 > 2);, 1
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="runningCode_outputsExpectedText(return only function, int randomNumber() { return 4; } println(randomNumber());, 4
+)">
+                  </a> <!-- runningCode_outputsExpectedText(return only function, int randomNumber() { return 4; } println(randomNumber());, 4
+) -->
+                  <span class="method-name">runningCode_outputsExpectedText</span>
+                  <span class="parameters">(return only function, int randomNumber() { return 4; } println(randomNumber());, 4
+)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+        </div> <!-- panel Default_suite -->
+        <div panel-name="test-xml-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">/tmp/testng-eclipse--532220833/testng-customsuite.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
+  &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;br.com.compiler.compiler.CompilerTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Default test --&gt;
+&lt;/suite&gt; &lt;!-- Default suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Default test (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Default_suite');
+function tableData_Default_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(45);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'runningCode_outputsExpectedText')
+data.setCell(0, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(0, 3, 93);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'runningCode_outputsExpectedText')
+data.setCell(1, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(1, 3, 80);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'runningCode_outputsExpectedText')
+data.setCell(2, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(2, 3, 79);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice')
+data.setCell(3, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(3, 3, 79);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'runningCode_outputsExpectedText')
+data.setCell(4, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(4, 3, 78);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'runningCode_outputsExpectedText')
+data.setCell(5, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(5, 3, 78);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'runningCode_outputsExpectedText')
+data.setCell(6, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(6, 3, 74);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'runningCode_outputsExpectedText')
+data.setCell(7, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(7, 3, 69);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'runningCode_outputsExpectedText')
+data.setCell(8, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(8, 3, 68);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'runningCode_outputsExpectedText')
+data.setCell(9, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(9, 3, 68);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'runningCode_outputsExpectedText')
+data.setCell(10, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(10, 3, 67);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'runningCode_outputsExpectedText')
+data.setCell(11, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(11, 3, 67);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'runningCode_outputsExpectedText')
+data.setCell(12, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(12, 3, 66);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'runningCode_outputsExpectedText')
+data.setCell(13, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(13, 3, 61);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'runningCode_outputsExpectedText')
+data.setCell(14, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(14, 3, 61);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'runningCode_outputsExpectedText')
+data.setCell(15, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(15, 3, 60);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'runningCode_outputsExpectedText')
+data.setCell(16, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(16, 3, 60);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'runningCode_outputsExpectedText')
+data.setCell(17, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(17, 3, 58);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'runningCode_outputsExpectedText')
+data.setCell(18, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(18, 3, 57);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'runningCode_outputsExpectedText')
+data.setCell(19, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(19, 3, 57);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'runningCode_outputsExpectedText')
+data.setCell(20, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(20, 3, 56);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'runningCode_outputsExpectedText')
+data.setCell(21, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(21, 3, 54);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'runningCode_outputsExpectedText')
+data.setCell(22, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(22, 3, 54);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'runningCode_outputsExpectedText')
+data.setCell(23, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(23, 3, 54);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'runningCode_outputsExpectedText')
+data.setCell(24, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(24, 3, 53);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'runningCode_outputsExpectedText')
+data.setCell(25, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(25, 3, 52);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'runningCode_outputsExpectedText')
+data.setCell(26, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(26, 3, 52);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'runningCode_outputsExpectedText')
+data.setCell(27, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(27, 3, 51);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'runningCode_outputsExpectedText')
+data.setCell(28, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(28, 3, 51);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'runningCode_outputsExpectedText')
+data.setCell(29, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(29, 3, 51);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'runningCode_outputsExpectedText')
+data.setCell(30, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(30, 3, 51);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'runningCode_outputsExpectedText')
+data.setCell(31, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(31, 3, 50);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'runningCode_outputsExpectedText')
+data.setCell(32, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(32, 3, 50);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'runningCode_outputsExpectedText')
+data.setCell(33, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(33, 3, 49);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'runningCode_outputsExpectedText')
+data.setCell(34, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(34, 3, 49);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'runningCode_outputsExpectedText')
+data.setCell(35, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(35, 3, 49);
+data.setCell(36, 0, 36)
+data.setCell(36, 1, 'runningCode_outputsExpectedText')
+data.setCell(36, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(36, 3, 49);
+data.setCell(37, 0, 37)
+data.setCell(37, 1, 'runningCode_outputsExpectedText')
+data.setCell(37, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(37, 3, 49);
+data.setCell(38, 0, 38)
+data.setCell(38, 1, 'runningCode_outputsExpectedText')
+data.setCell(38, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(38, 3, 48);
+data.setCell(39, 0, 39)
+data.setCell(39, 1, 'runningCode_outputsExpectedText')
+data.setCell(39, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(39, 3, 48);
+data.setCell(40, 0, 40)
+data.setCell(40, 1, 'runningCode_outputsExpectedText')
+data.setCell(40, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(40, 3, 47);
+data.setCell(41, 0, 41)
+data.setCell(41, 1, 'compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable')
+data.setCell(41, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(41, 3, 6);
+data.setCell(42, 0, 42)
+data.setCell(42, 1, 'compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction')
+data.setCell(42, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(42, 3, 2);
+data.setCell(43, 0, 43)
+data.setCell(43, 1, 'compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable')
+data.setCell(43, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(43, 3, 1);
+data.setCell(44, 0, 44)
+data.setCell(44, 1, 'compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable')
+data.setCell(44, 2, 'br.com.compiler.compiler.CompilerTest')
+data.setCell(44, 3, 1);
+window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 2 seconds</span>
+              <div id="times-div-Default_suite">
+              </div> <!-- times-div-Default_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">br.com.compiler.compiler.CompilerTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice</span>
+                <span class="method-start">11 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">94 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">95 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable</span>
+                <span class="method-start">96 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">103 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">105 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable</span>
+                <span class="method-start">105 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">108 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">109 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction</span>
+                <span class="method-start">109 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">113 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">115 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable</span>
+                <span class="method-start">115 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">118 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">133 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(plus, println(1+2);, 3
+)</span>
+                <span class="method-start">133 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">226 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">227 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(chained plus, println(1+2+42);, 45
+)</span>
+                <span class="method-start">227 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">277 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">277 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(multiple statements, println(1); println(2);, 1
+2
+)</span>
+                <span class="method-start">278 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">345 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">346 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(minus, println(3-2);, 1
+)</span>
+                <span class="method-start">346 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">426 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">427 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(times, println(2*3);, 6
+)</span>
+                <span class="method-start">428 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">498 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">499 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(divide, println(6/2);, 3
+)</span>
+                <span class="method-start">499 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">557 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">558 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(divide and truncate, println(7/2);, 3
+)</span>
+                <span class="method-start">558 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">609 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">610 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(divide and times, println(8/2*4);, 16
+)</span>
+                <span class="method-start">610 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">659 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">660 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(plus and times, println(2+3*3);, 11
+)</span>
+                <span class="method-start">661 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">711 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">711 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(minus and times, println(9-2*3);, 3
+)</span>
+                <span class="method-start">712 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">760 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">760 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(int variable, int foo; foo = 42; println(foo);, 42
+)</span>
+                <span class="method-start">761 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">811 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">812 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(add var and constant parameter, int foo; foo = 42; println(foo+2);, 44
+)</span>
+                <span class="method-start">813 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">862 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">862 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(add two vars parameter, int a; int b; a = 2; b = 5; println(a+b);, 7
+)</span>
+                <span class="method-start">862 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">914 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">915 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(return only function, int randomNumber() { return 4; } println(randomNumber());, 4
+)</span>
+                <span class="method-start">915 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">966 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">967 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(simple function, int randomNumber() {
+int i;
+i = 4;
+return i;
+}
+println(randomNumber());, 4
+)</span>
+                <span class="method-start">967 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1035 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1036 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(scopes, int randomNumber() {
+	int i;
+	i = 4;
+	return i;
+}
+int i;
+i = 42;
+println(randomNumber());
+pr...)</span>
+                <span class="method-start">1036 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1090 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1090 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(int parameters, int add(int a, int b) {
+	return a+b;
+}
+println(add(5,8));, 13
+)</span>
+                <span class="method-start">1090 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1142 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1143 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(overloading, int x() { return 0; }
+int x(int a) { return a; }
+println(x());
+println(x(42));, 0
+42
+)</span>
+                <span class="method-start">1143 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1195 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1195 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(if int false, if (0) {
+	println(81);
+} else {
+	println(42);
+}, 42
+)</span>
+                <span class="method-start">1195 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1248 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1248 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(branch/if_int_true, if (1) {
+  println(81);
+} else {
+  println(42);
+}, 81
+)</span>
+                <span class="method-start">1248 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1298 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1298 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(string/print_string, print("teste");, teste)</span>
+                <span class="method-start">1299 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1352 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1352 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(r_float/print_float, println(15.561);, 15.561
+)</span>
+                <span class="method-start">1353 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1428 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1429 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(r_float/int_plus_float, println(5.5+3.3);, 8.8
+)</span>
+                <span class="method-start">1430 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1497 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1497 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(lower than true, println(1 < 2);, 1
+)</span>
+                <span class="method-start">1498 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1550 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1551 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(lower than false, println(2 < 2);, 0
+)</span>
+                <span class="method-start">1551 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1631 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1632 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(lower than or equal true, println(2 <= 2);, 1
+)</span>
+                <span class="method-start">1632 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1682 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1683 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(lower than or equal false, println(3 <= 2);, 0
+)</span>
+                <span class="method-start">1683 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1738 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1738 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(greater than true, println(3 > 2);, 1
+)</span>
+                <span class="method-start">1739 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1797 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1798 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(greater than false, println(2 > 2);, 0
+)</span>
+                <span class="method-start">1798 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1853 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1853 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(greater than or equal true, println(2 >= 2);, 1
+)</span>
+                <span class="method-start">1854 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1916 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1916 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(greater than or equal false, println(1 >= 2);, 0
+)</span>
+                <span class="method-start">1916 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">1995 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">1996 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(and true, println(1 && 1);, 1
+)</span>
+                <span class="method-start">1996 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">2065 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">2066 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(and left false, println(0 && 1);, 0
+)</span>
+                <span class="method-start">2066 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">2125 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">2126 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(and right false, println(1 && 0);, 0
+)</span>
+                <span class="method-start">2126 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">2188 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">2189 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(operators/and-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(0) && x(1));, 0
+0
+)</span>
+                <span class="method-start">2189 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">2246 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">2246 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(or false, println(0 || 0);, 0
+)</span>
+                <span class="method-start">2246 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">2307 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">2308 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(or left true, println(1 || 0);, 1
+)</span>
+                <span class="method-start">2308 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">2377 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">2378 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(or right true, println(0 || 1);, 1
+)</span>
+                <span class="method-start">2378 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">2439 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">2440 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(operators/or-skip-right, int x(int i) {
+	println(i);
+	return i;
+}
+
+println(x(1) || x(0));, 1
+1
+)</span>
+                <span class="method-start">2441 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">2522 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">createTempDir</span>
+                <span class="method-start">2523 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">runningCode_outputsExpectedText(print, print(42);, 42)</span>
+                <span class="method-start">2523 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">deleteTempDir</span>
+                <span class="method-start">2578 ms</span>
+              </div> <!-- configuration-method after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>
