@@ -34,6 +34,7 @@ import br.com.compiler.parser.DemoParser.StringContext;
 import br.com.compiler.parser.DemoParser.UnaryContext;
 import br.com.compiler.parser.DemoParser.VarDeclarationContext;
 import br.com.compiler.parser.DemoParser.VariableContext;
+import br.com.compiler.parser.DemoParser.WhileStatementContext;
 
 public class MyVisitor extends DemoBaseVisitor<String> {
 
@@ -44,6 +45,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 	private int compareCount = 0;
 	private int andCounter = 0;
 	private int orCounter = 0;
+	private int whileCounter = 0;
 
 	public MyVisitor(FunctionList definedFunctions) {
 		if (definedFunctions == null) {
@@ -143,6 +145,9 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		return instructions;
 	}
 
+	
+
+	
 	@Override
 	public String visitRelational(RelationalContext ctx) {
 		int compareNum = compareCount;
@@ -166,9 +171,11 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 					+ ctx.operation.getText());
 		}
 		String instructions = visitChildren(ctx) + "\n" + jumpInstruction
-				+ " onTrue" + compareNum + "\n" + "ldc 0\n" + "goto onFalse"
-				+ compareNum + "\n" + "onTrue" + compareNum + ":\n" + "ldc 1\n"
-				+ "onFalse" + compareNum + ":";
+				+ " onTrue" + compareNum + "\n" 
+				+ "ldc 0\n"
+				+ "goto onFalse" + compareNum + "\n"
+				+ "onTrue" + compareNum + ":\n" + "ldc 1\n"
+				+ "onFalse" + compareNum + ":\n";
 
 		jvmStack.pop();
 		jvmStack.pop();
@@ -258,6 +265,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		return "iload " + requiredVariableIndex(ctx.varName);
 	}
 
+	
 	@Override
 	public String visitFunctionCall(FunctionCallContext ctx) {
 		int numberOfParameters = ctx.arguments.expressions.size();
@@ -330,6 +338,26 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 				+ mainCode + "\n" + "return\n" + "\n" + ".end method";
 	}
 
+	
+	@Override
+	public String visitWhileStatement(WhileStatementContext ctx) {
+		String conditionInstructions = visit(ctx.condition);
+		jvmStack.pop();
+		String whileTrueInstructions = visit(ctx.whileTrue);
+		int whileNum = whileCounter;
+		whileCounter++;
+		return 	"\n"
+				+ "whileStart" + whileNum + ":\n\n"
+				+ conditionInstructions + "\n" //aqui
+				+ "ifeq endWhile" + whileNum + "\n"
+				+ "\n"
+				+ whileTrueInstructions + "\n"
+				+ "goto whileStart" + whileNum + "\n"
+				+ "endWhile" + whileNum + ":\n";
+
+		
+	}
+	
 	@Override
 	public String visitBranch(BranchContext ctx) {
 		String conditionInstructions = visit(ctx.condition);
