@@ -17,6 +17,7 @@ import br.com.compiler.parser.DemoParser.AssignmentContext;
 import br.com.compiler.parser.DemoParser.BranchContext;
 import br.com.compiler.parser.DemoParser.DivContext;
 import br.com.compiler.parser.DemoParser.FloatContext;
+import br.com.compiler.parser.DemoParser.ForStatContext;
 import br.com.compiler.parser.DemoParser.FunctionCallContext;
 import br.com.compiler.parser.DemoParser.FunctionDefinitionContext;
 import br.com.compiler.parser.DemoParser.MainStatementContext;
@@ -44,6 +45,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 	private int compareCount = 0;
 	private int andCounter = 0;
 	private int orCounter = 0;
+	private int forCounter = 0;
 
 	public MyVisitor(FunctionList definedFunctions) {
 		if (definedFunctions == null) {
@@ -74,27 +76,15 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitUnary(UnaryContext ctx) {
-		// jvmStack.push(DataType.INT);
-		// String instructions = "iload " + requiredVariableIndex(ctx.varName);
-		// DataType pop = jvmStack.pop();
-		// String op = "";
-		// if (pop == DataType.FLOAT) {
-		// jvmStack.push(DataType.FLOAT);
-		// op = "fadd";
-		// } else {
-		// jvmStack.push(DataType.INT);
-		// op = "iadd";
-		// }
-		// int index = requiredVariableIndex(ctx.varName);
-		// return instructions + "\nldc 1\n" + op + "\nistore " + index
-		// + "\niload " + index;
-
 		int index = requiredVariableIndex(ctx.varName);
+		String load = "";
+		// load = "iload " + index;
+		// jvmStack.push(DataType.INT);
 		switch (ctx.operation.getText()) {
 		case "++":
-			return "iinc " + index + " 1";
+			return "iinc " + index + " 1\n" + load;
 		case "--":
-			return "iinc " + index + " -1";
+			return "iinc " + index + " -1\n" + load;
 		default:
 			throw new UnexpectedToken(ctx.operation);
 		}
@@ -343,6 +333,21 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 				+ onFalseInstructions + "\n" + "goto endIf" + branchNum + "\n"
 				+ "ifTrue" + branchNum + ":\n" + onTrueInstructions + "\n"
 				+ "endIf" + branchNum + ":\n";
+	}
+
+	@Override
+	public String visitForStat(ForStatContext ctx) {
+		String instructions = visit(ctx.declaration);
+		int forNum = forCounter;
+		forCounter++;
+		instructions += "\nforStart" + forNum + ":";
+		instructions += "\n" + visit(ctx.expr);
+		instructions += "\nifeq endFor" + forNum;
+		instructions += "\n" + visit(ctx.forBlock);
+		instructions += "\n" + visit(ctx.assign);
+		instructions += "\ngoto forStart" + forNum;
+		instructions += "\nendFor" + forNum + ":";
+		return instructions;
 	}
 
 	private int requiredVariableIndex(Token varNameToken) {

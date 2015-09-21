@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>46/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>48/3/0</td>
 </tr><tr>
-<td>Started on:</td><td>Sun Sep 20 15:52:24 BRT 2015</td>
+<td>Started on:</td><td>Sun Sep 20 21:11:39 BRT 2015</td>
 </tr>
-<tr><td>Total time:</td><td>2 seconds (2569 ms)</td>
+<tr><td>Total time:</td><td>2 seconds (2625 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,284 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: unary/unary-plus-plus-inline, int w = 0;
+print(w++);, 1</td>
+<td><div><pre>java.util.NoSuchElementException
+	at java.util.LinkedList.removeFirst(LinkedList.java:268)
+	at java.util.LinkedList.pop(LinkedList.java:799)
+	at br.com.compiler.compiler.JvmStack.pop(JvmStack.java:15)
+	at br.com.compiler.compiler.MyVisitor.visitPrint(MyVisitor.java:72)
+	at br.com.compiler.compiler.MyVisitor.visitPrint(MyVisitor.java:1)
+	at br.com.compiler.parser.DemoParser$PrintContext.accept(DemoParser.java:1130)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
+	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
+	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
+	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
+	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
+	at br.com.compiler.compiler.Main.compile(Main.java:28)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
+	at br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText(CompilerTest.java:54)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:773)
+	at org.testng.TestRunner.run(TestRunner.java:623)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1185)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1110)
+	at org.testng.TestNG.run(TestNG.java:1018)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
+</pre></div><a href='#' onClick='toggleBox("stack-trace559803229", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace559803229'><pre>java.util.NoSuchElementException
+	at java.util.LinkedList.removeFirst(LinkedList.java:268)
+	at java.util.LinkedList.pop(LinkedList.java:799)
+	at br.com.compiler.compiler.JvmStack.pop(JvmStack.java:15)
+	at br.com.compiler.compiler.MyVisitor.visitPrint(MyVisitor.java:72)
+	at br.com.compiler.compiler.MyVisitor.visitPrint(MyVisitor.java:1)
+	at br.com.compiler.parser.DemoParser$PrintContext.accept(DemoParser.java:1130)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
+	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
+	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
+	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
+	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
+	at br.com.compiler.compiler.Main.compile(Main.java:28)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
+	at br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText(CompilerTest.java:54)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:773)
+	at org.testng.TestRunner.run(TestRunner.java:623)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1185)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1110)
+	at org.testng.TestNG.run(TestNG.java:1018)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
+</pre></div></td>
+<td>0</td>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
+<tr>
+<td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: unary/unary-minus-minus-inline, int w = 0;
+print(w--);, -1</td>
+<td><div><pre>java.util.NoSuchElementException
+	at java.util.LinkedList.removeFirst(LinkedList.java:268)
+	at java.util.LinkedList.pop(LinkedList.java:799)
+	at br.com.compiler.compiler.JvmStack.pop(JvmStack.java:15)
+	at br.com.compiler.compiler.MyVisitor.visitPrint(MyVisitor.java:72)
+	at br.com.compiler.compiler.MyVisitor.visitPrint(MyVisitor.java:1)
+	at br.com.compiler.parser.DemoParser$PrintContext.accept(DemoParser.java:1130)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
+	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
+	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
+	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
+	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
+	at br.com.compiler.compiler.Main.compile(Main.java:28)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
+	at br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText(CompilerTest.java:54)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:773)
+	at org.testng.TestRunner.run(TestRunner.java:623)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1185)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1110)
+	at org.testng.TestNG.run(TestNG.java:1018)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1716460785", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1716460785'><pre>java.util.NoSuchElementException
+	at java.util.LinkedList.removeFirst(LinkedList.java:268)
+	at java.util.LinkedList.pop(LinkedList.java:799)
+	at br.com.compiler.compiler.JvmStack.pop(JvmStack.java:15)
+	at br.com.compiler.compiler.MyVisitor.visitPrint(MyVisitor.java:72)
+	at br.com.compiler.compiler.MyVisitor.visitPrint(MyVisitor.java:1)
+	at br.com.compiler.parser.DemoParser$PrintContext.accept(DemoParser.java:1130)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
+	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
+	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
+	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
+	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
+	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
+	at br.com.compiler.compiler.Main.compile(Main.java:28)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
+	at br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText(CompilerTest.java:54)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:773)
+	at org.testng.TestRunner.run(TestRunner.java:623)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1185)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1110)
+	at org.testng.TestNG.run(TestNG.java:1018)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
+</pre></div></td>
+<td>0</td>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
+<tr>
+<td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: whileStatement/while_stat, int i = 0;
+while (i < 5) {
+  println(i);
+  i = i + 1;
+}, not implemented yet</td>
+<td><div><pre>java.lang.AssertionError: expected [not implemented yet] but found [0
+1
+2
+3
+4
+]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:496)
+	at org.testng.Assert.assertEquals(Assert.java:125)
+	at org.testng.Assert.assertEquals(Assert.java:178)
+	at org.testng.Assert.assertEquals(Assert.java:188)
+	at br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText(CompilerTest.java:57)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:773)
+	at org.testng.TestRunner.run(TestRunner.java:623)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1185)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1110)
+	at org.testng.TestNG.run(TestNG.java:1018)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1142672840", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1142672840'><pre>java.lang.AssertionError: expected [not implemented yet] but found [0
+1
+2
+3
+4
+]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:496)
+	at org.testng.Assert.assertEquals(Assert.java:125)
+	at org.testng.Assert.assertEquals(Assert.java:178)
+	at org.testng.Assert.assertEquals(Assert.java:188)
+	at br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText(CompilerTest.java:57)
+	at sun.reflect.GeneratedMethodAccessor3.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:639)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:816)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1124)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:773)
+	at org.testng.TestRunner.run(TestRunner.java:623)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:359)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:312)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:261)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1185)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1110)
+	at org.testng.TestNG.run(TestNG.java:1018)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
+</pre></div></td>
+<td>0</td>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -79,7 +357,7 @@ function toggleAllBoxes() {
 <td><div><pre>br.com.compiler.compiler.exceptions.FunctionAlreadyDefinedException: 2:4 function already defined: &lt;x&gt;
 	at br.com.compiler.compiler.FunctionDefinitionFinder$1.visitFunctionDefinition(FunctionDefinitionFinder.java:20)
 	at br.com.compiler.compiler.FunctionDefinitionFinder$1.visitFunctionDefinition(FunctionDefinitionFinder.java:1)
-	at br.com.compiler.parser.DemoParser$FunctionDefinitionContext.accept(DemoParser.java:1165)
+	at br.com.compiler.parser.DemoParser$FunctionDefinitionContext.accept(DemoParser.java:1185)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitProgPartFunctionDefinition(DemoBaseVisitor.java:34)
 	at br.com.compiler.parser.DemoParser$ProgPartFunctionDefinitionContext.accept(DemoParser.java:169)
@@ -89,7 +367,7 @@ function toggleAllBoxes() {
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
 	at br.com.compiler.compiler.FunctionDefinitionFinder.findFunctions(FunctionDefinitionFinder.java:25)
 	at br.com.compiler.compiler.Main.compile(Main.java:27)
-	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:229)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
 	at br.com.compiler.compiler.CompilerTest.compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice(CompilerTest.java:100)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -115,11 +393,11 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2008751570", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2008751570'><pre>br.com.compiler.compiler.exceptions.FunctionAlreadyDefinedException: 2:4 function already defined: &lt;x&gt;
+</pre></div><a href='#' onClick='toggleBox("stack-trace402234022", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace402234022'><pre>br.com.compiler.compiler.exceptions.FunctionAlreadyDefinedException: 2:4 function already defined: &lt;x&gt;
 	at br.com.compiler.compiler.FunctionDefinitionFinder$1.visitFunctionDefinition(FunctionDefinitionFinder.java:20)
 	at br.com.compiler.compiler.FunctionDefinitionFinder$1.visitFunctionDefinition(FunctionDefinitionFinder.java:1)
-	at br.com.compiler.parser.DemoParser$FunctionDefinitionContext.accept(DemoParser.java:1165)
+	at br.com.compiler.parser.DemoParser$FunctionDefinitionContext.accept(DemoParser.java:1185)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitProgPartFunctionDefinition(DemoBaseVisitor.java:34)
 	at br.com.compiler.parser.DemoParser$ProgPartFunctionDefinitionContext.accept(DemoParser.java:169)
@@ -129,7 +407,7 @@ function toggleAllBoxes() {
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
 	at br.com.compiler.compiler.FunctionDefinitionFinder.findFunctions(FunctionDefinitionFinder.java:25)
 	at br.com.compiler.compiler.Main.compile(Main.java:27)
-	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:229)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
 	at br.com.compiler.compiler.CompilerTest.compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice(CompilerTest.java:100)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -157,31 +435,31 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
 </pre></div></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable()'><b>compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable</b><br>Test class: br.com.compiler.compiler.CompilerTest</td>
 <td><div><pre>br.com.compiler.compiler.exceptions.UndeclaredVariableException: 1:8 undeclared variable &lt;x&gt;
-	at br.com.compiler.compiler.MyVisitor.requiredVariableIndex(MyVisitor.java:352)
-	at br.com.compiler.compiler.MyVisitor.visitVariable(MyVisitor.java:258)
+	at br.com.compiler.compiler.MyVisitor.requiredVariableIndex(MyVisitor.java:372)
+	at br.com.compiler.compiler.MyVisitor.visitVariable(MyVisitor.java:250)
 	at br.com.compiler.compiler.MyVisitor.visitVariable(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$VariableContext.accept(DemoParser.java:561)
+	at br.com.compiler.parser.DemoParser$VariableContext.accept(DemoParser.java:581)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:57)
+	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:61)
 	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$PrintlnContext.accept(DemoParser.java:1069)
+	at br.com.compiler.parser.DemoParser$PrintlnContext.accept(DemoParser.java:1089)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
-	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:245)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
 	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:321)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
 	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
 	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
 	at br.com.compiler.compiler.Main.compile(Main.java:28)
-	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:229)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
 	at br.com.compiler.compiler.CompilerTest.compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable(CompilerTest.java:64)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -207,29 +485,29 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-</pre></div><a href='#' onClick='toggleBox("stack-trace883632016", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace883632016'><pre>br.com.compiler.compiler.exceptions.UndeclaredVariableException: 1:8 undeclared variable &lt;x&gt;
-	at br.com.compiler.compiler.MyVisitor.requiredVariableIndex(MyVisitor.java:352)
-	at br.com.compiler.compiler.MyVisitor.visitVariable(MyVisitor.java:258)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1341734650", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1341734650'><pre>br.com.compiler.compiler.exceptions.UndeclaredVariableException: 1:8 undeclared variable &lt;x&gt;
+	at br.com.compiler.compiler.MyVisitor.requiredVariableIndex(MyVisitor.java:372)
+	at br.com.compiler.compiler.MyVisitor.visitVariable(MyVisitor.java:250)
 	at br.com.compiler.compiler.MyVisitor.visitVariable(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$VariableContext.accept(DemoParser.java:561)
+	at br.com.compiler.parser.DemoParser$VariableContext.accept(DemoParser.java:581)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:57)
+	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:61)
 	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$PrintlnContext.accept(DemoParser.java:1069)
+	at br.com.compiler.parser.DemoParser$PrintlnContext.accept(DemoParser.java:1089)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
-	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:245)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
 	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:321)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
 	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
 	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
 	at br.com.compiler.compiler.Main.compile(Main.java:28)
-	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:229)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
 	at br.com.compiler.compiler.CompilerTest.compilingCode_throwsUndeclaredVariableException_ifReadingUndefinedVariable(CompilerTest.java:64)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -257,27 +535,27 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
 </pre></div></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable()'><b>compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable</b><br>Test class: br.com.compiler.compiler.CompilerTest</td>
 <td><div><pre>br.com.compiler.compiler.exceptions.UndeclaredVariableException: 1:0 undeclared variable &lt;x&gt;
-	at br.com.compiler.compiler.MyVisitor.requiredVariableIndex(MyVisitor.java:352)
-	at br.com.compiler.compiler.MyVisitor.visitAssignment(MyVisitor.java:250)
+	at br.com.compiler.compiler.MyVisitor.requiredVariableIndex(MyVisitor.java:372)
+	at br.com.compiler.compiler.MyVisitor.visitAssignment(MyVisitor.java:242)
 	at br.com.compiler.compiler.MyVisitor.visitAssignment(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$AssignmentContext.accept(DemoParser.java:1028)
+	at br.com.compiler.parser.DemoParser$AssignmentContext.accept(DemoParser.java:1048)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
-	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:245)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
 	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:321)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
 	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
 	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
 	at br.com.compiler.compiler.Main.compile(Main.java:28)
-	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:229)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
 	at br.com.compiler.compiler.CompilerTest.compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable(CompilerTest.java:73)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -303,25 +581,25 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2134196695", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2134196695'><pre>br.com.compiler.compiler.exceptions.UndeclaredVariableException: 1:0 undeclared variable &lt;x&gt;
-	at br.com.compiler.compiler.MyVisitor.requiredVariableIndex(MyVisitor.java:352)
-	at br.com.compiler.compiler.MyVisitor.visitAssignment(MyVisitor.java:250)
+</pre></div><a href='#' onClick='toggleBox("stack-trace388408482", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace388408482'><pre>br.com.compiler.compiler.exceptions.UndeclaredVariableException: 1:0 undeclared variable &lt;x&gt;
+	at br.com.compiler.compiler.MyVisitor.requiredVariableIndex(MyVisitor.java:372)
+	at br.com.compiler.compiler.MyVisitor.visitAssignment(MyVisitor.java:242)
 	at br.com.compiler.compiler.MyVisitor.visitAssignment(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$AssignmentContext.accept(DemoParser.java:1028)
+	at br.com.compiler.parser.DemoParser$AssignmentContext.accept(DemoParser.java:1048)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
-	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:245)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
 	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:321)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
 	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
 	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
 	at br.com.compiler.compiler.Main.compile(Main.java:28)
-	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:229)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
 	at br.com.compiler.compiler.CompilerTest.compilingCode_throwsUndeclaredVariableException_ifWritingUndefinedVariable(CompilerTest.java:73)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -349,33 +627,33 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
 </pre></div></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction()'><b>compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction</b><br>Test class: br.com.compiler.compiler.CompilerTest</td>
 <td><div><pre>br.com.compiler.compiler.exceptions.UndefinedFunctionException: 1:8 call to undefined function: &lt;someUndefinedFunction&gt;
-	at br.com.compiler.compiler.MyVisitor.visitFunctionCall(MyVisitor.java:266)
+	at br.com.compiler.compiler.MyVisitor.visitFunctionCall(MyVisitor.java:258)
 	at br.com.compiler.compiler.MyVisitor.visitFunctionCall(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$FunctionCallContext.accept(DemoParser.java:1299)
+	at br.com.compiler.parser.DemoParser$FunctionCallContext.accept(DemoParser.java:1319)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitFuncCallExpression(DemoBaseVisitor.java:132)
-	at br.com.compiler.parser.DemoParser$FuncCallExpressionContext.accept(DemoParser.java:625)
+	at br.com.compiler.parser.DemoParser$FuncCallExpressionContext.accept(DemoParser.java:645)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:57)
+	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:61)
 	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$PrintlnContext.accept(DemoParser.java:1069)
+	at br.com.compiler.parser.DemoParser$PrintlnContext.accept(DemoParser.java:1089)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
-	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:245)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
 	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:321)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
 	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
 	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
 	at br.com.compiler.compiler.Main.compile(Main.java:28)
-	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:229)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
 	at br.com.compiler.compiler.CompilerTest.compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction(CompilerTest.java:91)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -401,31 +679,31 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1280585187", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1280585187'><pre>br.com.compiler.compiler.exceptions.UndefinedFunctionException: 1:8 call to undefined function: &lt;someUndefinedFunction&gt;
-	at br.com.compiler.compiler.MyVisitor.visitFunctionCall(MyVisitor.java:266)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1290340102", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1290340102'><pre>br.com.compiler.compiler.exceptions.UndefinedFunctionException: 1:8 call to undefined function: &lt;someUndefinedFunction&gt;
+	at br.com.compiler.compiler.MyVisitor.visitFunctionCall(MyVisitor.java:258)
 	at br.com.compiler.compiler.MyVisitor.visitFunctionCall(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$FunctionCallContext.accept(DemoParser.java:1299)
+	at br.com.compiler.parser.DemoParser$FunctionCallContext.accept(DemoParser.java:1319)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitFuncCallExpression(DemoBaseVisitor.java:132)
-	at br.com.compiler.parser.DemoParser$FuncCallExpressionContext.accept(DemoParser.java:625)
+	at br.com.compiler.parser.DemoParser$FuncCallExpressionContext.accept(DemoParser.java:645)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:57)
+	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:61)
 	at br.com.compiler.compiler.MyVisitor.visitPrintln(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$PrintlnContext.accept(DemoParser.java:1069)
+	at br.com.compiler.parser.DemoParser$PrintlnContext.accept(DemoParser.java:1089)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
-	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:245)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
 	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:321)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
 	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
 	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
 	at br.com.compiler.compiler.Main.compile(Main.java:28)
-	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:229)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
 	at br.com.compiler.compiler.CompilerTest.compilingCode_throwsUndefinedFunctionException_whenCallingUndefinedFunction(CompilerTest.java:91)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -453,26 +731,26 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
 </pre></div></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable()'><b>compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable</b><br>Test class: br.com.compiler.compiler.CompilerTest</td>
 <td><div><pre>br.com.compiler.compiler.exceptions.VariableAlreadyDefinedException: 2:4 variable already defined: &lt;x&gt;
-	at br.com.compiler.compiler.MyVisitor.visitVarDeclaration(MyVisitor.java:234)
+	at br.com.compiler.compiler.MyVisitor.visitVarDeclaration(MyVisitor.java:226)
 	at br.com.compiler.compiler.MyVisitor.visitVarDeclaration(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$VarDeclarationContext.accept(DemoParser.java:975)
+	at br.com.compiler.parser.DemoParser$VarDeclarationContext.accept(DemoParser.java:995)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
-	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:245)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
 	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:321)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
 	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
 	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
 	at br.com.compiler.compiler.Main.compile(Main.java:28)
-	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:229)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
 	at br.com.compiler.compiler.CompilerTest.compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable(CompilerTest.java:82)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -498,24 +776,24 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:112)
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:205)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
-</pre></div><a href='#' onClick='toggleBox("stack-trace2051927438", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2051927438'><pre>br.com.compiler.compiler.exceptions.VariableAlreadyDefinedException: 2:4 variable already defined: &lt;x&gt;
-	at br.com.compiler.compiler.MyVisitor.visitVarDeclaration(MyVisitor.java:234)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1105169052", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1105169052'><pre>br.com.compiler.compiler.exceptions.VariableAlreadyDefinedException: 2:4 variable already defined: &lt;x&gt;
+	at br.com.compiler.compiler.MyVisitor.visitVarDeclaration(MyVisitor.java:226)
 	at br.com.compiler.compiler.MyVisitor.visitVarDeclaration(MyVisitor.java:1)
-	at br.com.compiler.parser.DemoParser$VarDeclarationContext.accept(DemoParser.java:975)
+	at br.com.compiler.parser.DemoParser$VarDeclarationContext.accept(DemoParser.java:995)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitStatement(DemoBaseVisitor.java:41)
-	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:245)
+	at br.com.compiler.parser.DemoParser$StatementContext.accept(DemoParser.java:251)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visitChildren(AbstractParseTreeVisitor.java:70)
 	at br.com.compiler.parser.DemoBaseVisitor.visitMainStatement(DemoBaseVisitor.java:27)
 	at br.com.compiler.parser.DemoParser$MainStatementContext.accept(DemoParser.java:180)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
-	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:321)
+	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:313)
 	at br.com.compiler.compiler.MyVisitor.visitProgram(MyVisitor.java:1)
 	at br.com.compiler.parser.DemoParser$ProgramContext.accept(DemoParser.java:112)
 	at org.antlr.v4.runtime.tree.AbstractParseTreeVisitor.visit(AbstractParseTreeVisitor.java:42)
 	at br.com.compiler.compiler.Main.compile(Main.java:28)
-	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:229)
+	at br.com.compiler.compiler.CompilerTest.compileAndRun(CompilerTest.java:235)
 	at br.com.compiler.compiler.CompilerTest.compilingCode_throwsVariableAlreadyDefinedException_whenDefiningAlreadyDefinedVariable(CompilerTest.java:82)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
@@ -543,92 +821,92 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:176)
 </pre></div></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: plus, println(1+2);, 3
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: chained plus, println(1+2+42);, 45
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: multiple statements, println(1); println(2);, 1
 2
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: minus, println(3-2);, 1
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: times, println(2*3);, 6
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: divide, println(6/2);, 3
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: divide and truncate, println(7/2);, 3
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: divide and times, println(8/2*4);, 16
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: plus and times, println(2+3*3);, 11
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: minus and times, println(9-2*3);, 3
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: int variable, int foo; foo = 42; println(foo);, 42
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: add var and constant parameter, int foo; foo = 42; println(foo+2);, 44
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: add two vars parameter, int a; int b; a = 2; b = 5; println(a+b);, 7
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: return only function, int randomNumber() { return 4; } println(randomNumber());, 4
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: simple function, int randomNumber() {
 int i;
@@ -639,7 +917,7 @@ println(randomNumber());, 4
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: scopes, int randomNumber() {
 	int i;
@@ -654,7 +932,7 @@ println(i);, 4
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: int parameters, int add(int a, int b) {
 	return a+b;
@@ -663,7 +941,7 @@ println(add(5,8));, 13
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: overloading, int x() { return 0; }
 int x(int a) { return a; }
@@ -673,7 +951,7 @@ println(x(42));, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: if int false, if (0) {
 	println(81);
@@ -683,7 +961,7 @@ println(x(42));, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: branch/if_int_true, if (1) {
   println(81);
@@ -693,90 +971,90 @@ println(x(42));, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: string/print_string, print("teste");, teste</td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: r_float/print_float, println(15.561);, 15.561
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: r_float/int_plus_float, println(5.5+3.3);, 8.8
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: lower than true, println(1 < 2);, 1
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: lower than false, println(2 < 2);, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: lower than or equal true, println(2 <= 2);, 1
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: lower than or equal false, println(3 <= 2);, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: greater than true, println(3 > 2);, 1
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: greater than false, println(2 > 2);, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: greater than or equal true, println(2 >= 2);, 1
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: greater than or equal false, println(1 >= 2);, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: and true, println(1 && 1);, 1
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: and left false, println(0 && 1);, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: and right false, println(1 && 0);, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: operators/and-skip-right, int x(int i) {
 	println(i);
@@ -788,25 +1066,25 @@ println(x(0) && x(1));, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: or false, println(0 || 0);, 0
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: or left true, println(1 || 0);, 1
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: or right true, println(0 || 1);, 1
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: operators/or-skip-right, int x(int i) {
 	println(i);
@@ -818,19 +1096,33 @@ println(x(1) || x(0));, 1
 </td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: print, print(42);, 42</td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 <tr>
 <td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: unary/unary-plus-plus, int w = 0;
 w++;
 print(w);, 1</td>
 <td></td>
 <td>0</td>
-<td>br.com.compiler.compiler.CompilerTest@19e185b9</td></tr>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
+<tr>
+<td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: unary/unary-minus-minus, int w = 0;
+w--;
+print(w);, -1</td>
+<td></td>
+<td>0</td>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
+<tr>
+<td title='br.com.compiler.compiler.CompilerTest.runningCode_outputsExpectedText()'><b>runningCode_outputsExpectedText</b><br>Test class: br.com.compiler.compiler.CompilerTest<br>Parameters: forStatement/for_stat, for (int i = 0; i < 5 ; i++) {
+	print(i);
+}, 01234</td>
+<td></td>
+<td>0</td>
+<td>br.com.compiler.compiler.CompilerTest@2550036c</td></tr>
 </table><p>
 </body>
 </html>

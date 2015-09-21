@@ -1,7 +1,3 @@
-	int fatorial(int n) {
-	int fat;
-	for(int i = 0; i <= n; i = i+1) {
-		fat = fat * i;
-	}
-	return fat;
-	}
+for (int i = 0; i < 5 ; i++) {
+	print(i);
+}

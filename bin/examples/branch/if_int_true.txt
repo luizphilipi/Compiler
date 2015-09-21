@@ -1,5 +1,0 @@
-if (1) {
-  println(81);
-} else {
-  println(42);
-}

@@ -1,6 +1,0 @@
-int x(int i) {
-	println(i);
-	return i;
-}
-
-println(x(1) || x(0));

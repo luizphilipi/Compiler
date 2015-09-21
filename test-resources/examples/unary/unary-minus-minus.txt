@@ -1,0 +1,3 @@
+int w = 0;
+w--;
+print(w);

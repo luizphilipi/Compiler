@@ -6,7 +6,7 @@
       <class name="br.com.compiler.compiler.CompilerTest">
         <methods>
           <include name="createTempDir"/>
-          <include name="runningCode_outputsExpectedText" invocation-numbers="40"/>
+          <include name="runningCode_outputsExpectedText" invocation-numbers="41 43 45"/>
           <include name="deleteTempDir"/>
         </methods>
       </class> <!-- br.com.compiler.compiler.CompilerTest -->

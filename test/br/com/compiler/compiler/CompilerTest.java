@@ -173,8 +173,7 @@ public class CompilerTest {
 						"15.561" + System.lineSeparator()),
 				example("r_float/int_plus_float",
 						"8.8" + System.lineSeparator()),
-				// example("forStatement/for_stat", "not implemented yet"),
-				// example("whileStatement/while_stat", "not implemented yet"),
+
 				{ "lower than true", "println(1 < 2);",
 						"1" + System.lineSeparator() },
 				{ "lower than false", "println(2 < 2);",
@@ -209,7 +208,14 @@ public class CompilerTest {
 						+ "1" + System.lineSeparator()),
 
 				{ "print", "print(42);", "42" },
-				example("unary/unary-plus-plus", "1")};
+				example("unary/unary-plus-plus", "1"),
+				example("unary/unary-plus-plus-inline", "1"),
+				example("unary/unary-minus-minus", "-1"),
+				example("unary/unary-minus-minus-inline", "-1"),
+
+				example("forStatement/for_stat", "01234"),
+
+				example("whileStatement/while_stat", "not implemented yet") };
 	}
 
 	private static String[] example(String name, String expectedResult)
