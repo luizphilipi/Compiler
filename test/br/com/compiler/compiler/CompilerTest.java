@@ -215,7 +215,7 @@ public class CompilerTest {
 
 				example("forStatement/for_stat", "01234"),
 
-				example("whileStatement/while_stat", "not implemented yet") };
+				example("whileStatement/while_stat", "34") };
 	}
 
 	private static String[] example(String name, String expectedResult)
