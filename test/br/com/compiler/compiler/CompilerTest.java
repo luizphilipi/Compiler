@@ -199,7 +199,10 @@ public class CompilerTest {
 						"true" + System.lineSeparator() },
 				{ "greater than or equal false", "println(1 >= 2);",
 						"false" + System.lineSeparator() },
-				{ "and true", "println(1 && 1);", "true" + System.lineSeparator() },
+
+				{ "and true", "println(1 && 1);",
+						"true" + System.lineSeparator() },
+
 				{ "and left false", "println(0 && 1);",
 						"false" + System.lineSeparator() },
 				{ "and right false", "println(1 && 0);",
@@ -208,7 +211,10 @@ public class CompilerTest {
 						"0" + System.lineSeparator() + "false"
 								+ System.lineSeparator()),
 
-				{ "or false", "println(0 || 0);", "false" + System.lineSeparator() },
+
+				{ "or false", "println(0 || 0);",
+						"false" + System.lineSeparator() },
+						
 				{ "or left true", "println(1 || 0);",
 						"true" + System.lineSeparator() },
 				{ "or right true", "println(0 || 1);",
@@ -218,13 +224,15 @@ public class CompilerTest {
 
 				{ "print", "print(42);", "42" },
 				example("unary/unary-plus-plus", "1"),
-//				example("unary/unary-plus-plus-inline", "1"),
+				// example("unary/unary-plus-plus-inline", "1"),
 				example("unary/unary-minus-minus", "-1"),
-//				example("unary/unary-minus-minus-inline", "-1"),
+				// example("unary/unary-minus-minus-inline", "-1"),
 
 				example("forStatement/for_stat", "01234"),
 
-				example("whileStatement/while_stat", "34") };
+				example("whileStatement/while_stat", "34"),
+
+				example("function/floatFunction", "13.5") };
 	}
 
 	private static String[] example(String name, String expectedResult)
