@@ -8,16 +8,22 @@ import br.com.compiler.parser.DemoParser.PrimitiveTypeContext;
 import br.com.compiler.parser.DemoParser.VarDeclarationContext;
 
 public enum DataType {
-	BOOLEAN("Z"), INT("I"), FLOAT("F"), STRING("Ljava/lang/String;");
+	BOOLEAN("Z", "i"), INT("I", "i"), FLOAT("F", "f"), STRING("Ljava/lang/String;", "a");
 
 	private final String jvmType;
+	private final String instructionPrefix;
 
-	private DataType(String jvmType) {
+	private DataType(String jvmType, String instructionPrefix) {
 		this.jvmType = jvmType;
+		this.instructionPrefix = instructionPrefix;
 	}
 
 	public String getJvmType() {
 		return this.jvmType;
+	}
+
+	public String getInstructionPrefix() {
+		return instructionPrefix;
 	}
 
 	public static DataType identifyVariableDataType(PrimitiveTypeContext ctx) {

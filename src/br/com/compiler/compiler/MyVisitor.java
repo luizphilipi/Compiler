@@ -1,6 +1,7 @@
 package br.com.compiler.compiler;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -171,7 +172,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 		jvmStack.pop();
 		jvmStack.pop();
-		jvmStack.push(DataType.INT);
+		jvmStack.push(DataType.BOOLEAN);
 		return instructions;
 	}
 
@@ -184,7 +185,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 		jvmStack.pop();
 		jvmStack.pop();
-		jvmStack.push(DataType.INT);
+		jvmStack.push(DataType.BOOLEAN);
 
 		return left + "\n" + "ifeq onAndFalse" + andNum + "\n" + right + "\n"
 				+ "ifeq onAndFalse" + andNum + "\n" + "ldc 1\n" + "goto andEnd"
@@ -201,7 +202,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 		jvmStack.pop();
 		jvmStack.pop();
-		jvmStack.push(DataType.INT);
+		jvmStack.push(DataType.BOOLEAN);
 
 		return left + "\n" + "ifne onOrTrue" + orNum + "\n" + right + "\n"
 				+ "ifne onOrTrue" + orNum + "\n" + "ldc 0\n" + "goto orEnd"
@@ -253,33 +254,38 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitVariable(VariableContext ctx) {
-		jvmStack.push(DataType.INT);
-		return "iload " + requiredVariableIndex(ctx.varName);
+		DataType dataType = findVariable(ctx.varName).getDataType();
+		jvmStack.push(dataType);
+		return dataType.getInstructionPrefix() + "load "
+				+ requiredVariableIndex(ctx.varName);
 	}
 
 	@Override
 	public String visitFunctionCall(FunctionCallContext ctx) {
-		int numberOfParameters = ctx.arguments.expressions.size();
-		List<DataType> types = new ArrayList<DataType>();
-		for (int i = 0; i < numberOfParameters; i++) {
-			types.add(DataType.INT);
-		}
-		if (!definedFunctions.contains(ctx.funcName.getText(), types)) {
-			throw new UndefinedFunctionException(ctx.funcName);
-		}
 		String instructions = "";
 		String argumentsInstructions = visit(ctx.arguments);
 		if (argumentsInstructions != null) {
 			instructions += argumentsInstructions + "\n";
 		}
+		int numberOfParameters = ctx.arguments.expressions.size();
+		List<DataType> types = new ArrayList<DataType>();
+		StringBuilder parameterTypeSequence = new StringBuilder();
+		for (int i = 0; i < numberOfParameters; i++) {
+			DataType dataType = jvmStack.pop();
+			types.add(dataType);
+			parameterTypeSequence.append(dataType.getJvmType());
+		}
+		Collections.reverse(types);
+		FunctionDefinition functionDefinition = definedFunctions
+				.findFunctionDefinition(ctx.funcName.getText(), types);
+		if (functionDefinition == null) {
+			throw new UndefinedFunctionException(ctx.funcName);
+		}
 		instructions += "invokestatic HelloWorld/" + ctx.funcName.getText()
 				+ "(";
-		instructions += stringRepeat("I", numberOfParameters);
-		instructions += ")I";
-		for (int i = 0; i < numberOfParameters; i++) {
-			jvmStack.pop();
-		}
-		jvmStack.push(DataType.INT);
+		instructions += parameterTypeSequence.reverse().toString();
+		instructions += ")" + functionDefinition.getReturnType().getJvmType();
+		jvmStack.push(functionDefinition.getReturnType());
 		return instructions;
 	}
 
@@ -290,27 +296,23 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		variables = new HashMap<Variable, Integer>();
 		jvmStack = new JvmStack();
 		visit(ctx.params);
+		DataType returnType = DataType.identifyVariableDataType(ctx.returnType);
 		String statementInstructions = visit(ctx.statements);
 		String result = ".method public static " + ctx.funcName.getText() + "(";
 		result += identifyParamTypes(ctx.params.declarations);
-		result += ")I\n"
+		result += ")"
+				+ returnType.getJvmType()
+				+ "\n"
 				+ ".limit locals 100\n"
 				+ ".limit stack 100\n"
 				+ (statementInstructions == null ? "" : statementInstructions
-						+ "\n") + visit(ctx.returnValue) + "\n" + "ireturn\n"
-				+ ".end method";
+						+ "\n") + visit(ctx.returnValue) + "\n"
+				+ returnType.getInstructionPrefix() + "return\n"
+				+ ".end method\n";
 		jvmStack.pop();
 		variables = oldVariables;
 		jvmStack = oldJvmStack;
 		return result;
-	}
-
-	private String stringRepeat(String string, int count) {
-		StringBuilder result = new StringBuilder();
-		for (int i = 0; i < count; i++) {
-			result.append(string);
-		}
-		return result.toString();
 	}
 
 	@Override
@@ -352,7 +354,6 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 				+ "\n" + "ifeq endWhile" + whileNum + "\n" + "\n"
 				+ whileTrueInstructions + "\n" + "goto whileStart" + whileNum
 				+ "\n" + "endWhile" + whileNum + ":\n";
-
 	}
 
 	@Override
@@ -397,6 +398,15 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 			throw new UndeclaredVariableException(varNameToken);
 		}
 		return varIndex;
+	}
+
+	private Variable findVariable(Token varNameToken) {
+		for (Variable variable : variables.keySet()) {
+			if (variable.getName().equals(varNameToken.getText())) {
+				return variable;
+			}
+		}
+		throw new UndeclaredVariableException(varNameToken);
 	}
 
 	private String identifyParamTypes(

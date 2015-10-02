@@ -175,47 +175,51 @@ public class CompilerTest {
 						"8.8" + System.lineSeparator()),
 
 				{ "lower than true", "println(1 < 2);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				{ "lower than false", "println(2 < 2);",
-						"0" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
 				{ "lower than or equal true", "println(2 <= 2);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				{ "lower than or equal false", "println(3 <= 2);",
-						"0" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
 				{ "greater than true", "println(3 > 2);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				{ "greater than false", "println(2 > 2);",
-						"0" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
 				{ "greater than or equal true", "println(2 >= 2);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				{ "greater than or equal false", "println(1 >= 2);",
-						"0" + System.lineSeparator() },
-				{ "and true", "println(1 && 1);", "1" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
+				{ "and true", "println(1 && 1);",
+						"true" + System.lineSeparator() },
 				{ "and left false", "println(0 && 1);",
-						"0" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
 				{ "and right false", "println(1 && 0);",
-						"0" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
 				example("operators/and-skip-right",
-						"0" + System.lineSeparator() + "0"
+						"0" + System.lineSeparator() + "false"
 								+ System.lineSeparator()),
 
-				{ "or false", "println(0 || 0);", "0" + System.lineSeparator() },
+				{ "or false", "println(0 || 0);",
+						"false" + System.lineSeparator() },
 				{ "or left true", "println(1 || 0);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				{ "or right true", "println(0 || 1);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				example("operators/or-skip-right", "1" + System.lineSeparator()
-						+ "1" + System.lineSeparator()),
+						+ "true" + System.lineSeparator()),
 
 				{ "print", "print(42);", "42" },
 				example("unary/unary-plus-plus", "1"),
-//				example("unary/unary-plus-plus-inline", "1"),
+				// example("unary/unary-plus-plus-inline", "1"),
 				example("unary/unary-minus-minus", "-1"),
-//				example("unary/unary-minus-minus-inline", "-1"),
+				// example("unary/unary-minus-minus-inline", "-1"),
 
 				example("forStatement/for_stat", "01234"),
 
-				example("whileStatement/while_stat", "34") };
+				example("whileStatement/while_stat", "34"),
+
+				example("function/floatFunction", "13.5") };
 	}
 
 	private static String[] example(String name, String expectedResult)
