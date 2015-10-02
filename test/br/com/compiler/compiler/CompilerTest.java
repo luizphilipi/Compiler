@@ -97,7 +97,7 @@ public class CompilerTest {
 	public void compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice()
 			throws Exception {
 		// execution
-		compileAndRun("int x() { return 42 }\n" + "int x() { return 42 }");
+		compileAndRun("int x() { return 42; }\n" + "int x() { return 42; }");
 
 		// evaluation performed by expected exception
 	}
@@ -174,38 +174,47 @@ public class CompilerTest {
 				example("r_float/int_plus_float",
 						"8.8" + System.lineSeparator()),
 
+				example("r_float/minus_float",
+						"2.0" + System.lineSeparator()),
+						
+				example("r_float/div_float",
+						"2.5" + System.lineSeparator()),
+						
+				example("r_float/mul_float",
+						"18.15" + System.lineSeparator()),	
+					
 				{ "lower than true", "println(1 < 2);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				{ "lower than false", "println(2 < 2);",
-						"0" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
 				{ "lower than or equal true", "println(2 <= 2);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				{ "lower than or equal false", "println(3 <= 2);",
-						"0" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
 				{ "greater than true", "println(3 > 2);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				{ "greater than false", "println(2 > 2);",
-						"0" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
 				{ "greater than or equal true", "println(2 >= 2);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				{ "greater than or equal false", "println(1 >= 2);",
-						"0" + System.lineSeparator() },
-				{ "and true", "println(1 && 1);", "1" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
+				{ "and true", "println(1 && 1);", "true" + System.lineSeparator() },
 				{ "and left false", "println(0 && 1);",
-						"0" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
 				{ "and right false", "println(1 && 0);",
-						"0" + System.lineSeparator() },
+						"false" + System.lineSeparator() },
 				example("operators/and-skip-right",
-						"0" + System.lineSeparator() + "0"
+						"0" + System.lineSeparator() + "false"
 								+ System.lineSeparator()),
 
-				{ "or false", "println(0 || 0);", "0" + System.lineSeparator() },
+				{ "or false", "println(0 || 0);", "false" + System.lineSeparator() },
 				{ "or left true", "println(1 || 0);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				{ "or right true", "println(0 || 1);",
-						"1" + System.lineSeparator() },
+						"true" + System.lineSeparator() },
 				example("operators/or-skip-right", "1" + System.lineSeparator()
-						+ "1" + System.lineSeparator()),
+						+ "true" + System.lineSeparator()),
 
 				{ "print", "print(42);", "42" },
 				example("unary/unary-plus-plus", "1"),
