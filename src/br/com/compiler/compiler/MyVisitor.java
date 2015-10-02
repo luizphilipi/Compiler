@@ -111,29 +111,54 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitMinus(MinusContext ctx) {
-		String instructions = visitChildren(ctx) + "\n" + "isub";
-		jvmStack.pop();
-		jvmStack.pop();
-		jvmStack.push(DataType.INT);
-		return instructions;
+		//String instructions = visitChildren(ctx) + "\n" + "isub";
+		String instructions = visitChildren(ctx) + "\n";
+		DataType pop = jvmStack.pop();
+		DataType pop2 = jvmStack.pop();
+		
+		String op = "";
+		if (pop == DataType.FLOAT || pop2 == DataType.FLOAT) {
+			jvmStack.push(DataType.FLOAT);
+			op = "fsub";
+		} else {
+			jvmStack.push(DataType.INT);
+			op = "isub";
+		}
+		return instructions + op;
 	}
 
 	@Override
 	public String visitDiv(DivContext ctx) {
-		String instructions = visitChildren(ctx) + "\n" + "idiv";
-		jvmStack.pop();
-		jvmStack.pop();
-		jvmStack.push(DataType.INT);
-		return instructions;
+		//String instructions = visitChildren(ctx) + "\n" + "idiv";
+		String instructions = visitChildren(ctx) + "\n";
+		DataType pop = jvmStack.pop();
+		DataType pop2 = jvmStack.pop();
+		String op = "";
+		if (pop == DataType.FLOAT || pop2 == DataType.FLOAT) {
+			jvmStack.push(DataType.FLOAT);
+			op = "fdiv";
+		} else{
+			jvmStack.push(DataType.INT);
+			op = "idiv";
+		}
+		return instructions + op;
 	}
 
 	@Override
 	public String visitMult(MultContext ctx) {
-		String instructions = visitChildren(ctx) + "\n" + "imul";
-		jvmStack.pop();
-		jvmStack.pop();
-		jvmStack.push(DataType.INT);
-		return instructions;
+		//String instructions = visitChildren(ctx) + "\n" + "imul";
+		String instructions = visitChildren(ctx) + "\n";
+		DataType pop = jvmStack.pop();
+		DataType pop2 = jvmStack.pop();
+		String op = "";
+		if (pop == DataType.FLOAT || pop2 == DataType.FLOAT) {
+			jvmStack.push(DataType.FLOAT);
+			op = "fmul";
+		} else{
+			jvmStack.push(DataType.INT);
+			op = "imul";
+		}
+		return instructions + op;
 	}
 
 	@Override
@@ -171,7 +196,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 		jvmStack.pop();
 		jvmStack.pop();
-		jvmStack.push(DataType.INT);
+		jvmStack.push(DataType.BOOLEAN);
 		return instructions;
 	}
 
@@ -184,7 +209,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 		jvmStack.pop();
 		jvmStack.pop();
-		jvmStack.push(DataType.INT);
+		jvmStack.push(DataType.BOOLEAN);
 
 		return left + "\n" + "ifeq onAndFalse" + andNum + "\n" + right + "\n"
 				+ "ifeq onAndFalse" + andNum + "\n" + "ldc 1\n" + "goto andEnd"
@@ -201,7 +226,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 		jvmStack.pop();
 		jvmStack.pop();
-		jvmStack.push(DataType.INT);
+		jvmStack.push(DataType.BOOLEAN);
 
 		return left + "\n" + "ifne onOrTrue" + orNum + "\n" + right + "\n"
 				+ "ifne onOrTrue" + orNum + "\n" + "ldc 0\n" + "goto orEnd"
