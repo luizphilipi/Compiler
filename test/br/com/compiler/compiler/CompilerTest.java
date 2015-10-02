@@ -97,7 +97,7 @@ public class CompilerTest {
 	public void compilingCode_throwsFunctionAlreadyDefinedException_whenDefiningFunctionTwice()
 			throws Exception {
 		// execution
-		compileAndRun("int x() { return 42 }\n" + "int x() { return 42 }");
+		compileAndRun("int x() { return 42; }\n" + "int x() { return 42; }");
 
 		// evaluation performed by expected exception
 	}
