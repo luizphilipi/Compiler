@@ -15,11 +15,12 @@ public class FunctionDefinitionFinder {
 			@Override
 			public Void visitFunctionDefinition(FunctionDefinitionContext ctx) {
 				String functionName = ctx.funcName.getText();
-				int parameterCount = ctx.params.declarations.size();
-				if (definedFunctions.contains(functionName, parameterCount)) {
+				if (definedFunctions.contains(functionName, DataType
+						.identifyVariableDataType(ctx.params.declarations))) {
 					throw new FunctionAlreadyDefinedException(ctx.funcName);
 				}
-				definedFunctions.add(functionName, parameterCount);
+				definedFunctions.add(functionName, DataType
+						.identifyVariableDataType(ctx.params.declarations));
 				return null;
 			}
 		}.visit(tree);

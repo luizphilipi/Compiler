@@ -1,6 +1,8 @@
 package br.com.compiler.compiler;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.antlr.v4.runtime.Token;
@@ -9,12 +11,12 @@ import org.antlr.v4.runtime.tree.ParseTree;
 import br.com.compiler.compiler.exceptions.UndeclaredVariableException;
 import br.com.compiler.compiler.exceptions.UndefinedFunctionException;
 import br.com.compiler.compiler.exceptions.UnexpectedToken;
-import br.com.compiler.compiler.exceptions.UnknownVariableType;
 import br.com.compiler.compiler.exceptions.VariableAlreadyDefinedException;
 import br.com.compiler.parser.DemoBaseVisitor;
 import br.com.compiler.parser.DemoParser.AndContext;
 import br.com.compiler.parser.DemoParser.AssignmentContext;
 import br.com.compiler.parser.DemoParser.BranchContext;
+import br.com.compiler.parser.DemoParser.ConstructorDeclarationContext;
 import br.com.compiler.parser.DemoParser.DivContext;
 import br.com.compiler.parser.DemoParser.FloatContext;
 import br.com.compiler.parser.DemoParser.ForStatContext;
@@ -26,7 +28,6 @@ import br.com.compiler.parser.DemoParser.MultContext;
 import br.com.compiler.parser.DemoParser.NumberContext;
 import br.com.compiler.parser.DemoParser.OrContext;
 import br.com.compiler.parser.DemoParser.PlusContext;
-import br.com.compiler.parser.DemoParser.PrimitiveTypeContext;
 import br.com.compiler.parser.DemoParser.PrintContext;
 import br.com.compiler.parser.DemoParser.PrintlnContext;
 import br.com.compiler.parser.DemoParser.ProgramContext;
@@ -60,9 +61,9 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 	public String visitPrintln(PrintlnContext ctx) {
 		String argumentInstruction = visit(ctx.argument);
 		DataType type = jvmStack.pop();
-		return "	getstatic java/lang/System/out Ljava/io/PrintStream;\n"
+		return "getstatic java/lang/System/out Ljava/io/PrintStream;\n"
 				+ argumentInstruction + "\n"
-				+ "	invokevirtual java/io/PrintStream/println("
+				+ "invokevirtual java/io/PrintStream/println("
 				+ type.getJvmType() + ")V\n";
 	}
 
@@ -70,9 +71,9 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 	public String visitPrint(PrintContext ctx) {
 		String argumentInstruction = visit(ctx.argument);
 		DataType type = jvmStack.pop();
-		return "	getstatic java/lang/System/out Ljava/io/PrintStream;\n"
+		return "getstatic java/lang/System/out Ljava/io/PrintStream;\n"
 				+ argumentInstruction + "\n"
-				+ "	invokevirtual java/io/PrintStream/print("
+				+ "invokevirtual java/io/PrintStream/print("
 				+ type.getJvmType() + ")V\n";
 	}
 
@@ -135,9 +136,6 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		return instructions;
 	}
 
-	
-
-	
 	@Override
 	public String visitRelational(RelationalContext ctx) {
 		int compareNum = compareCount;
@@ -156,15 +154,19 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		case ">=":
 			jumpInstruction = "if_icmpge";
 			break;
+		case "==":
+			jumpInstruction = "if_acmpeq";
+			break;
+		case "!=":
+			jumpInstruction = "if_acmpne";
+			break;
 		default:
 			throw new IllegalArgumentException("Unknown operator: "
 					+ ctx.operation.getText());
 		}
 		String instructions = visitChildren(ctx) + "\n" + jumpInstruction
-				+ " onTrue" + compareNum + "\n" 
-				+ "ldc 0\n"
-				+ "goto onFalse" + compareNum + "\n"
-				+ "onTrue" + compareNum + ":\n" + "ldc 1\n"
+				+ " onTrue" + compareNum + "\n" + "ldc 0\n" + "goto onFalse"
+				+ compareNum + "\n" + "onTrue" + compareNum + ":\n" + "ldc 1\n"
 				+ "onFalse" + compareNum + ":\n";
 
 		jvmStack.pop();
@@ -230,7 +232,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		if (variables.containsKey(new Variable(null, ctx.varName.getText()))) {
 			throw new VariableAlreadyDefinedException(ctx.varName);
 		}
-		variables.put(new Variable(identifyVariableDataType(ctx.type),
+		variables.put(new Variable(DataType.identifyVariableDataType(ctx.type),
 				ctx.varName.getText()), variables.size());
 		String instructions = "";
 		if (ctx.expr != null) {
@@ -255,12 +257,14 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		return "iload " + requiredVariableIndex(ctx.varName);
 	}
 
-	
 	@Override
 	public String visitFunctionCall(FunctionCallContext ctx) {
 		int numberOfParameters = ctx.arguments.expressions.size();
-		if (!definedFunctions.contains(ctx.funcName.getText(),
-				numberOfParameters)) {
+		List<DataType> types = new ArrayList<DataType>();
+		for (int i = 0; i < numberOfParameters; i++) {
+			types.add(DataType.INT);
+		}
+		if (!definedFunctions.contains(ctx.funcName.getText(), types)) {
 			throw new UndefinedFunctionException(ctx.funcName);
 		}
 		String instructions = "";
@@ -288,8 +292,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		visit(ctx.params);
 		String statementInstructions = visit(ctx.statements);
 		String result = ".method public static " + ctx.funcName.getText() + "(";
-		int numberOfParameters = ctx.params.declarations.size();
-		result += stringRepeat("I", numberOfParameters);
+		result += identifyParamTypes(ctx.params.declarations);
 		result += ")I\n"
 				+ ".limit locals 100\n"
 				+ ".limit stack 100\n"
@@ -324,43 +327,52 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 			}
 		}
 		return functions + ".method public static main([Ljava/lang/String;)V\n"
-				+ "	.limit stack 100\n" + "	.limit locals 100\n" + "\n"
+				+ ".limit stack 100\n" + ".limit locals 100\n" + "\n"
 				+ mainCode + "\n" + "return\n" + "\n" + ".end method";
 	}
 
-	
+	@Override
+	public String visitConstructorDeclaration(ConstructorDeclarationContext ctx) {
+		String constructor = ".method public <init>(";
+		constructor += identifyParamTypes(ctx.params.declarations);
+		constructor += ")V\n" + "aload_0\n"
+				+ "invokenonvirtual java/lang/Object/<init>()V\n";
+
+		String body = visit(ctx.statements);
+		return constructor + body + "return\n" + ".end method";
+	}
+
 	@Override
 	public String visitWhileStatement(WhileStatementContext ctx) {
 		String conditionInstructions = visit(ctx.condition);
-		jvmStack.pop();
 		String whileTrueInstructions = visit(ctx.whileTrue);
 		int whileNum = whileCounter;
 		whileCounter++;
-		return 	"\n"
-				+ "whileStart" + whileNum + ":\n\n"
-				+ conditionInstructions + "\n" //aqui
-				+ "ifeq endWhile" + whileNum + "\n"
-				+ "\n"
-				+ whileTrueInstructions + "\n"
-				+ "goto whileStart" + whileNum + "\n"
-				+ "endWhile" + whileNum + ":\n";
+		return "\n" + "whileStart" + whileNum + ":\n\n" + conditionInstructions
+				+ "\n" + "ifeq endWhile" + whileNum + "\n" + "\n"
+				+ whileTrueInstructions + "\n" + "goto whileStart" + whileNum
+				+ "\n" + "endWhile" + whileNum + ":\n";
 
-		
 	}
-	
+
 	@Override
 	public String visitBranch(BranchContext ctx) {
 		String conditionInstructions = visit(ctx.condition);
 		jvmStack.pop();
-		String onTrueInstructions = visit(ctx.onTrue);
-		String onFalseInstructions = visit(ctx.onFalse);
 		int branchNum = branchCounter;
 		branchCounter++;
+		String onTrueInstructions = visit(ctx.onTrue);
+		if (ctx.onFalse == null) {
+			return conditionInstructions + "\n" + "ifeq endIf" + branchNum
+					+ "\n" + onTrueInstructions + "endIf" + branchNum + ":";
+		} else {
+			String onFalseInstructions = visit(ctx.onFalse);
 
-		return conditionInstructions + "\n" + "ifne ifTrue" + branchNum + "\n"
-				+ onFalseInstructions + "\n" + "goto endIf" + branchNum + "\n"
-				+ "ifTrue" + branchNum + ":\n" + onTrueInstructions + "\n"
-				+ "endIf" + branchNum + ":\n";
+			return conditionInstructions + "\n" + "ifne ifTrue" + branchNum
+					+ "\n" + onFalseInstructions + "\n" + "goto endIf"
+					+ branchNum + "\n" + "ifTrue" + branchNum + ":\n"
+					+ onTrueInstructions + "\n" + "endIf" + branchNum + ":\n";
+		}
 	}
 
 	@Override
@@ -387,18 +399,14 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		return varIndex;
 	}
 
-	private DataType identifyVariableDataType(PrimitiveTypeContext ctx) {
-		switch (ctx.getText()) {
-		case "int":
-			return DataType.INT;
-		case "string":
-			return DataType.STRING;
-		case "float":
-			return DataType.FLOAT;
-		case "boolean":
-			return DataType.BOOLEAN;
+	private String identifyParamTypes(
+			List<VarDeclarationContext> varDeclarationContexts) {
+		StringBuilder result = new StringBuilder();
+		for (VarDeclarationContext varDeclarationContext : varDeclarationContexts) {
+			result.append(DataType.identifyVariableDataType(
+					varDeclarationContext.type).getJvmType());
 		}
-		throw new UnknownVariableType(ctx.type);
+		return result.toString();
 	}
 
 	@Override
