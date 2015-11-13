@@ -263,7 +263,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		String instructions = "";
 		if (ctx.expr != null) {
 			instructions = visit(ctx.expr) + "\n" + "istore "
-					+ requiredVariableIndex(ctx.varName);
+					+ requiredVariableIndex(ctx.varName) + "\n";
 			jvmStack.pop();
 		}
 		return instructions;
@@ -272,7 +272,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 	@Override
 	public String visitAssignment(AssignmentContext ctx) {
 		String instructions = visit(ctx.expr) + "\n" + "istore "
-				+ requiredVariableIndex(ctx.varName);
+				+ requiredVariableIndex(ctx.varName) + "\n";
 		jvmStack.pop();
 		return instructions;
 	}
