@@ -1,0 +1,22 @@
+float soma(float a, float b) {
+	return a + b;
+}
+
+int random() {
+	if(4==5) {
+		return 7;
+	} else {
+		int somatorio = 0;
+		for (int i = 1; i < 5; i = i + 1) {
+			somatorio = somatorio + i;
+			if (somatorio > 5) {
+				return somatorio;
+			}
+		}
+		
+	}
+	println(soma(5.0, 1.0));
+	return 5;
+}
+
+print(random());
