@@ -1,0 +1,8 @@
+int maior(int a, int b){
+	int maior = a;
+	if(maior < b){
+		maior = b;
+	}
+	return maior;
+}
+print(maior(2, 3));

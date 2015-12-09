@@ -1,0 +1,9 @@
+int potencia(int n, int p) {
+	int resultado = 1;
+	for (int cont = 0; cont<p; cont++){
+		resultado = resultado * n;
+	}
+	return resultado;
+}
+print(potencia(5, 2));
+print(potencia(2, 10));

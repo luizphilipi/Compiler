@@ -193,6 +193,15 @@ public class CompilerTest {
 				example("r_float/int_plus_float",
 						"8.8" + System.lineSeparator()),
 
+				example("r_float/minus_float",
+						"2.0" + System.lineSeparator()),
+						
+				example("r_float/div_float",
+						"2.5" + System.lineSeparator()),
+						
+				example("r_float/mul_float",
+						"18.15" + System.lineSeparator()),	
+					
 				{ "lower than true", "println(1 < 2);",
 						"true" + System.lineSeparator() },
 				{ "lower than false", "println(2 < 2);",
@@ -209,8 +218,10 @@ public class CompilerTest {
 						"true" + System.lineSeparator() },
 				{ "greater than or equal false", "println(1 >= 2);",
 						"false" + System.lineSeparator() },
+
 				{ "and true", "println(1 && 1);",
 						"true" + System.lineSeparator() },
+
 				{ "and left false", "println(0 && 1);",
 						"false" + System.lineSeparator() },
 				{ "and right false", "println(1 && 0);",
@@ -219,8 +230,10 @@ public class CompilerTest {
 						"0" + System.lineSeparator() + "false"
 								+ System.lineSeparator()),
 
+
 				{ "or false", "println(0 || 0);",
 						"false" + System.lineSeparator() },
+						
 				{ "or left true", "println(1 || 0);",
 						"true" + System.lineSeparator() },
 				{ "or right true", "println(0 || 1);",
