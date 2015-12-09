@@ -105,6 +105,7 @@ public class CompilerTest {
 	@DataProvider
 	public Object[][] provide_code_expectedText() throws Exception {
 		return new Object[][] {
+				/*
 				{ "plus", "println(1+2);", "3" + System.lineSeparator() },
 				{ "chained plus", "println(1+2+42);",
 						"45" + System.lineSeparator() },
@@ -233,6 +234,10 @@ public class CompilerTest {
 				example("whileStatement/while_stat", "34"),
 
 				example("function/floatFunction", "13.5") };
+		*/
+				//example("all/power", "25" + "1024")
+				example("all/maior", "3" ) };
+		
 	}
 
 	private static String[] example(String name, String expectedResult)
