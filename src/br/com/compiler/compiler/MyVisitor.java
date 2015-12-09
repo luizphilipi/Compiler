@@ -9,6 +9,7 @@ import java.util.Map;
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.ParseTree;
 
+import br.com.compiler.compiler.exceptions.IncompatibleTypeException;
 import br.com.compiler.compiler.exceptions.UndeclaredVariableException;
 import br.com.compiler.compiler.exceptions.UndefinedFunctionException;
 import br.com.compiler.compiler.exceptions.UnexpectedToken;
@@ -33,6 +34,7 @@ import br.com.compiler.parser.DemoParser.PrintContext;
 import br.com.compiler.parser.DemoParser.PrintlnContext;
 import br.com.compiler.parser.DemoParser.ProgramContext;
 import br.com.compiler.parser.DemoParser.RelationalContext;
+import br.com.compiler.parser.DemoParser.ReturnStatementContext;
 import br.com.compiler.parser.DemoParser.StringContext;
 import br.com.compiler.parser.DemoParser.UnaryContext;
 import br.com.compiler.parser.DemoParser.VarDeclarationContext;
@@ -50,6 +52,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 	private int orCounter = 0;
 	private int forCounter = 0;
 	private int whileCounter = 0;
+	private DataType currentFunctionReturnType;
 
 	public MyVisitor(FunctionList definedFunctions) {
 		if (definedFunctions == null) {
@@ -112,11 +115,11 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitMinus(MinusContext ctx) {
-		//String instructions = visitChildren(ctx) + "\n" + "isub";
+		// String instructions = visitChildren(ctx) + "\n" + "isub";
 		String instructions = visitChildren(ctx) + "\n";
 		DataType pop = jvmStack.pop();
 		DataType pop2 = jvmStack.pop();
-		
+
 		String op = "";
 		if (pop == DataType.FLOAT || pop2 == DataType.FLOAT) {
 			jvmStack.push(DataType.FLOAT);
@@ -130,7 +133,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitDiv(DivContext ctx) {
-		//String instructions = visitChildren(ctx) + "\n" + "idiv";
+		// String instructions = visitChildren(ctx) + "\n" + "idiv";
 		String instructions = visitChildren(ctx) + "\n";
 		DataType pop = jvmStack.pop();
 		DataType pop2 = jvmStack.pop();
@@ -138,7 +141,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		if (pop == DataType.FLOAT || pop2 == DataType.FLOAT) {
 			jvmStack.push(DataType.FLOAT);
 			op = "fdiv";
-		} else{
+		} else {
 			jvmStack.push(DataType.INT);
 			op = "idiv";
 		}
@@ -147,7 +150,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitMult(MultContext ctx) {
-		//String instructions = visitChildren(ctx) + "\n" + "imul";
+		// String instructions = visitChildren(ctx) + "\n" + "imul";
 		String instructions = visitChildren(ctx) + "\n";
 		DataType pop = jvmStack.pop();
 		DataType pop2 = jvmStack.pop();
@@ -155,7 +158,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		if (pop == DataType.FLOAT || pop2 == DataType.FLOAT) {
 			jvmStack.push(DataType.FLOAT);
 			op = "fmul";
-		} else{
+		} else {
 			jvmStack.push(DataType.INT);
 			op = "imul";
 		}
@@ -181,10 +184,10 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 			jumpInstruction = "if_icmpge";
 			break;
 		case "==":
-			jumpInstruction = "if_acmpeq";
+			jumpInstruction = "if_icmpeq";
 			break;
 		case "!=":
-			jumpInstruction = "if_acmpne";
+			jumpInstruction = "if_icmpne";
 			break;
 		default:
 			throw new IllegalArgumentException("Unknown operator: "
@@ -258,22 +261,35 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		if (variables.containsKey(new Variable(null, ctx.varName.getText()))) {
 			throw new VariableAlreadyDefinedException(ctx.varName);
 		}
-		variables.put(new Variable(DataType.identifyVariableDataType(ctx.type),
-				ctx.varName.getText()), variables.size());
+
+		DataType leftHand = DataType.identifyVariableDataType(ctx.type);
+		variables.put(new Variable(leftHand, ctx.varName.getText()),
+				variables.size());
 		String instructions = "";
 		if (ctx.expr != null) {
-			instructions = visit(ctx.expr) + "\n" + "istore "
-					+ requiredVariableIndex(ctx.varName);
-			jvmStack.pop();
+			instructions = visit(ctx.expr);
+			DataType rightHand = jvmStack.pop();
+			if (leftHand != rightHand) {
+				throw new IncompatibleTypeException(ctx.varName, leftHand,
+						rightHand);
+			}
+			instructions += "\n" + rightHand.getInstructionPrefix() + "store "
+					+ requiredVariableIndex(ctx.varName) + "\n";
 		}
 		return instructions;
 	}
 
 	@Override
 	public String visitAssignment(AssignmentContext ctx) {
-		String instructions = visit(ctx.expr) + "\n" + "istore "
-				+ requiredVariableIndex(ctx.varName);
-		jvmStack.pop();
+		String instructions = visit(ctx.expr);
+		DataType rightHand = jvmStack.pop();
+		DataType leftHand = findVariable(ctx.varName).getDataType();
+		if (leftHand != rightHand) {
+			throw new IncompatibleTypeException(ctx.varName, leftHand,
+					rightHand);
+		}
+		instructions += "\n" + rightHand.getInstructionPrefix() + "store "
+				+ requiredVariableIndex(ctx.varName) + "\n";
 		return instructions;
 	}
 
@@ -322,6 +338,9 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		jvmStack = new JvmStack();
 		visit(ctx.params);
 		DataType returnType = DataType.identifyVariableDataType(ctx.returnType);
+		
+		currentFunctionReturnType = returnType;
+		
 		String statementInstructions = visit(ctx.statements);
 		String result = ".method public static " + ctx.funcName.getText() + "(";
 		result += identifyParamTypes(ctx.params.declarations);
@@ -331,9 +350,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 				+ ".limit locals 100\n"
 				+ ".limit stack 100\n"
 				+ (statementInstructions == null ? "" : statementInstructions
-						+ "\n") + visit(ctx.returnValue) + "\n"
-				+ returnType.getInstructionPrefix() + "return\n"
-				+ ".end method\n";
+						+ "\n") + ".end method\n";
 		jvmStack.pop();
 		variables = oldVariables;
 		jvmStack = oldJvmStack;
@@ -410,12 +427,22 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		instructions += "\n" + visit(ctx.expr);
 		instructions += "\nifeq endFor" + forNum;
 		instructions += "\n" + visit(ctx.forBlock);
-		instructions += "\n" + visit(ctx.assign);
+		if (ctx.assign != null) {
+			instructions += "\n" + visit(ctx.assign);
+		}
+		if (ctx.expr2 != null) {
+			instructions += "\n" + visit(ctx.expr2);
+		}
 		instructions += "\ngoto forStart" + forNum;
 		instructions += "\nendFor" + forNum + ":";
 		return instructions;
 	}
 
+	@Override
+	public String visitReturnStatement(ReturnStatementContext ctx) {
+		return visit(ctx.returnValue) + "\n" + currentFunctionReturnType.getInstructionPrefix() + "return\n";
+	}
+	
 	private int requiredVariableIndex(Token varNameToken) {
 		Integer varIndex = variables.get(new Variable(null, varNameToken
 				.getText()));

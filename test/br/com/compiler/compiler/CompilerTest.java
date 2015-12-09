@@ -19,6 +19,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import br.com.compiler.compiler.exceptions.FunctionAlreadyDefinedException;
+import br.com.compiler.compiler.exceptions.IncompatibleTypeException;
 import br.com.compiler.compiler.exceptions.UndeclaredVariableException;
 import br.com.compiler.compiler.exceptions.UndefinedFunctionException;
 import br.com.compiler.compiler.exceptions.VariableAlreadyDefinedException;
@@ -98,6 +99,24 @@ public class CompilerTest {
 			throws Exception {
 		// execution
 		compileAndRun("int x() { return 42; }\n" + "int x() { return 42; }");
+
+		// evaluation performed by expected exception
+	}
+
+	@Test(expectedExceptions = IncompatibleTypeException.class, expectedExceptionsMessageRegExp = "1:7 incompatible type of variable: <abcde>, found INT but expected STRING")
+	public void compilingCode_throwsVariableIncompatibleTypes_whenDeclaringVariable()
+			throws Exception {
+		// execution
+		compileAndRun("string abcde = 5;");
+
+		// evaluation performed by expected exception
+	}
+	
+	@Test(expectedExceptions = IncompatibleTypeException.class, expectedExceptionsMessageRegExp = "2:0 incompatible type of variable: <a>, found FLOAT but expected INT")
+	public void compilingCode_throwsVariableIncompatibleTypes_whenAssigningVariable()
+			throws Exception {
+		// execution
+		compileAndRun("int a = 5;\n" + "a = 3.5;");
 
 		// evaluation performed by expected exception
 	}
@@ -219,7 +238,14 @@ public class CompilerTest {
 
 				example("whileStatement/while_stat", "34"),
 
-				example("function/floatFunction", "13.5") };
+				example("function/floatFunction", "13.5"),
+				{
+						"teste",
+						"int maior(int a, int b){\n" + "	int maior = a;\n"
+								+ "	if(maior < b){\n" + "		maior = b;\n"
+								+ "	}\n" + "	return maior;\n" + "}\n"
+								+ "print(maior(2, 3));", "3" },
+				example("function/multipleFunction", "6")};
 	}
 
 	private static String[] example(String name, String expectedResult)
