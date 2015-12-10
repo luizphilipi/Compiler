@@ -111,12 +111,23 @@ public class CompilerTest {
 
 		// evaluation performed by expected exception
 	}
-	
+
 	@Test(expectedExceptions = IncompatibleTypeException.class, expectedExceptionsMessageRegExp = "2:0 incompatible type of variable: <a>, found FLOAT but expected INT")
 	public void compilingCode_throwsVariableIncompatibleTypes_whenAssigningVariable()
 			throws Exception {
 		// execution
 		compileAndRun("int a = 5;\n" + "a = 3.5;");
+
+		// evaluation performed by expected exception
+	}
+
+	@Test(expectedExceptions = UndeclaredVariableException.class, expectedExceptionsMessageRegExp = "10:6 undeclared variable <i>")
+	public void compilingCode_throwsUndeclaredVariableException_inWrongScope()
+			throws Exception {
+		// execution
+		compileAndRun("if (1) {\n" + "	int i = 2;\n" + "	print(i);\n" + "}\n"
+				+ "\n" + "if (1) {\n" + "	int i = 3;\n" + "	print(i);\n"
+				+ "}\n" + "print(i);");
 
 		// evaluation performed by expected exception
 	}
@@ -193,15 +204,12 @@ public class CompilerTest {
 				example("r_float/int_plus_float",
 						"8.8" + System.lineSeparator()),
 
-				example("r_float/minus_float",
-						"2.0" + System.lineSeparator()),
-						
-				example("r_float/div_float",
-						"2.5" + System.lineSeparator()),
-						
-				example("r_float/mul_float",
-						"18.15" + System.lineSeparator()),	
-					
+				example("r_float/minus_float", "2.0" + System.lineSeparator()),
+
+				example("r_float/div_float", "2.5" + System.lineSeparator()),
+
+				example("r_float/mul_float", "18.15" + System.lineSeparator()),
+
 				{ "lower than true", "println(1 < 2);",
 						"true" + System.lineSeparator() },
 				{ "lower than false", "println(2 < 2);",
@@ -230,10 +238,9 @@ public class CompilerTest {
 						"0" + System.lineSeparator() + "false"
 								+ System.lineSeparator()),
 
-
 				{ "or false", "println(0 || 0);",
 						"false" + System.lineSeparator() },
-						
+
 				{ "or left true", "println(1 || 0);",
 						"true" + System.lineSeparator() },
 				{ "or right true", "println(0 || 1);",
@@ -258,7 +265,7 @@ public class CompilerTest {
 								+ "	if(maior < b){\n" + "		maior = b;\n"
 								+ "	}\n" + "	return maior;\n" + "}\n"
 								+ "print(maior(2, 3));", "3" },
-				example("function/multipleFunction", "6")};
+				example("function/multipleFunction", "6") };
 	}
 
 	private static String[] example(String name, String expectedResult)

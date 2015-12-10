@@ -2,7 +2,9 @@ package br.com.compiler.compiler;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -43,7 +45,6 @@ import br.com.compiler.parser.DemoParser.WhileStatementContext;
 
 public class MyVisitor extends DemoBaseVisitor<String> {
 
-	private Map<Variable, Integer> variables = new HashMap<Variable, Integer>();
 	private JvmStack jvmStack = new JvmStack();
 	private final FunctionList definedFunctions;
 	private int branchCounter = 0;
@@ -53,6 +54,11 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 	private int forCounter = 0;
 	private int whileCounter = 0;
 	private DataType currentFunctionReturnType;
+
+	private Scope globalScope = new Scope();
+	private Scope currentScope = new Scope();
+
+	private Deque<Scope> scopeStack = new LinkedList<Scope>();
 
 	public MyVisitor(FunctionList definedFunctions) {
 		if (definedFunctions == null) {
@@ -83,7 +89,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitUnary(UnaryContext ctx) {
-		int index = requiredVariableIndex(ctx.varName);
+		int index = currentScope.requiredVariableIndex(ctx.varName);
 		String load = "";
 		// load = "iload " + index;
 		// jvmStack.push(DataType.INT);
@@ -258,13 +264,12 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitVarDeclaration(VarDeclarationContext ctx) {
-		if (variables.containsKey(new Variable(null, ctx.varName.getText()))) {
+		if (currentScope.containsVariable(ctx.varName.getText())) {
 			throw new VariableAlreadyDefinedException(ctx.varName);
 		}
 
 		DataType leftHand = DataType.identifyVariableDataType(ctx.type);
-		variables.put(new Variable(leftHand, ctx.varName.getText()),
-				variables.size());
+		currentScope.addVariable(leftHand, ctx.varName.getText());
 		String instructions = "";
 		if (ctx.expr != null) {
 			instructions = visit(ctx.expr);
@@ -274,7 +279,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 						rightHand);
 			}
 			instructions += "\n" + rightHand.getInstructionPrefix() + "store "
-					+ requiredVariableIndex(ctx.varName) + "\n";
+					+ currentScope.requiredVariableIndex(ctx.varName) + "\n";
 		}
 		return instructions;
 	}
@@ -283,22 +288,24 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 	public String visitAssignment(AssignmentContext ctx) {
 		String instructions = visit(ctx.expr);
 		DataType rightHand = jvmStack.pop();
-		DataType leftHand = findVariable(ctx.varName).getDataType();
+		DataType leftHand = currentScope.findVariable(ctx.varName)
+				.getDataType();
 		if (leftHand != rightHand) {
 			throw new IncompatibleTypeException(ctx.varName, leftHand,
 					rightHand);
 		}
 		instructions += "\n" + rightHand.getInstructionPrefix() + "store "
-				+ requiredVariableIndex(ctx.varName) + "\n";
+				+ currentScope.requiredVariableIndex(ctx.varName) + "\n";
 		return instructions;
 	}
 
 	@Override
 	public String visitVariable(VariableContext ctx) {
-		DataType dataType = findVariable(ctx.varName).getDataType();
+		DataType dataType = currentScope.findVariable(ctx.varName)
+				.getDataType();
 		jvmStack.push(dataType);
 		return dataType.getInstructionPrefix() + "load "
-				+ requiredVariableIndex(ctx.varName);
+				+ currentScope.requiredVariableIndex(ctx.varName);
 	}
 
 	@Override
@@ -332,15 +339,14 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitFunctionDefinition(FunctionDefinitionContext ctx) {
-		Map<Variable, Integer> oldVariables = variables;
 		JvmStack oldJvmStack = jvmStack;
-		variables = new HashMap<Variable, Integer>();
 		jvmStack = new JvmStack();
+		incrementScope(false);
 		visit(ctx.params);
 		DataType returnType = DataType.identifyVariableDataType(ctx.returnType);
-		
+
 		currentFunctionReturnType = returnType;
-		
+
 		String statementInstructions = visit(ctx.statements);
 		String result = ".method public static " + ctx.funcName.getText() + "(";
 		result += identifyParamTypes(ctx.params.declarations);
@@ -352,7 +358,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 				+ (statementInstructions == null ? "" : statementInstructions
 						+ "\n") + ".end method\n";
 		jvmStack.pop();
-		variables = oldVariables;
+		decrementScope();
 		jvmStack = oldJvmStack;
 		return result;
 	}
@@ -388,10 +394,12 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitWhileStatement(WhileStatementContext ctx) {
+		incrementScope(true);
 		String conditionInstructions = visit(ctx.condition);
 		String whileTrueInstructions = visit(ctx.whileTrue);
 		int whileNum = whileCounter;
 		whileCounter++;
+		decrementScope();
 		return "\n" + "whileStart" + whileNum + ":\n\n" + conditionInstructions
 				+ "\n" + "ifeq endWhile" + whileNum + "\n" + "\n"
 				+ whileTrueInstructions + "\n" + "goto whileStart" + whileNum
@@ -400,17 +408,19 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitBranch(BranchContext ctx) {
+		incrementScope(true);
 		String conditionInstructions = visit(ctx.condition);
 		jvmStack.pop();
 		int branchNum = branchCounter;
 		branchCounter++;
 		String onTrueInstructions = visit(ctx.onTrue);
 		if (ctx.onFalse == null) {
+			decrementScope();
 			return conditionInstructions + "\n" + "ifeq endIf" + branchNum
 					+ "\n" + onTrueInstructions + "endIf" + branchNum + ":";
 		} else {
 			String onFalseInstructions = visit(ctx.onFalse);
-
+			decrementScope();
 			return conditionInstructions + "\n" + "ifne ifTrue" + branchNum
 					+ "\n" + onFalseInstructions + "\n" + "goto endIf"
 					+ branchNum + "\n" + "ifTrue" + branchNum + ":\n"
@@ -420,6 +430,7 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 
 	@Override
 	public String visitForStat(ForStatContext ctx) {
+		incrementScope(true);
 		String instructions = visit(ctx.declaration);
 		int forNum = forCounter;
 		forCounter++;
@@ -435,30 +446,14 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 		}
 		instructions += "\ngoto forStart" + forNum;
 		instructions += "\nendFor" + forNum + ":";
+		decrementScope();
 		return instructions;
 	}
 
 	@Override
 	public String visitReturnStatement(ReturnStatementContext ctx) {
-		return visit(ctx.returnValue) + "\n" + currentFunctionReturnType.getInstructionPrefix() + "return\n";
-	}
-	
-	private int requiredVariableIndex(Token varNameToken) {
-		Integer varIndex = variables.get(new Variable(null, varNameToken
-				.getText()));
-		if (varIndex == null) {
-			throw new UndeclaredVariableException(varNameToken);
-		}
-		return varIndex;
-	}
-
-	private Variable findVariable(Token varNameToken) {
-		for (Variable variable : variables.keySet()) {
-			if (variable.getName().equals(varNameToken.getText())) {
-				return variable;
-			}
-		}
-		throw new UndeclaredVariableException(varNameToken);
+		return visit(ctx.returnValue) + "\n"
+				+ currentFunctionReturnType.getInstructionPrefix() + "return\n";
 	}
 
 	private String identifyParamTypes(
@@ -480,5 +475,18 @@ public class MyVisitor extends DemoBaseVisitor<String> {
 			return aggregate;
 		}
 		return aggregate + "\n" + nextResult;
+	}
+
+	private void incrementScope(boolean appendScope) {
+		scopeStack.push(currentScope);
+		if (appendScope) {
+			currentScope = new Scope(currentScope);
+		} else {
+			currentScope = new Scope();
+		}
+	}
+
+	private void decrementScope() {
+		currentScope = scopeStack.pop();
 	}
 }
