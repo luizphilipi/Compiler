@@ -135,7 +135,7 @@ public class CompilerTest {
 	@DataProvider
 	public Object[][] provide_code_expectedText() throws Exception {
 		return new Object[][] {
-				/*
+				
 				{ "plus", "println(1+2);", "3" + System.lineSeparator() },
 				{ "chained plus", "println(1+2+42);",
 						"45" + System.lineSeparator() },
@@ -260,22 +260,32 @@ public class CompilerTest {
 				example("whileStatement/while_stat", "34"),
 
 
-				example("function/floatFunction", "13.5") };
-		*/
-				//example("all/power", "25" + "1024")
-			//	example("all/fatorial_iterativo", "6" + "120"),
-				example("all/fatorial_recursivo", "1" + "6"),
+				example("function/floatFunction", "13.5"),
+		
+				example("all/power", "25" + "1024"),
+				example("all/fatorial_iterativo", "6" + "120"),
 	
-				/*example("function/floatFunction", "13.5"),
+				example("function/floatFunction", "13.5"),
 				{
 						"teste",
 						"int maior(int a, int b){\n" + "	int maior = a;\n"
 								+ "	if(maior < b){\n" + "		maior = b;\n"
 								+ "	}\n" + "	return maior;\n" + "}\n"
-<<<<<<< HEAD
-								+ "print(maior(2, 3));", "3" },*/
+								+ "print(maior(2, 3));", "3" },
 				example("function/multipleFunction", "6"),
-				example("function/multipleFunction", "6") };
+				example("function/multipleFunction", "6"),
+				example("all/all",
+						"fatorial de 3 é: 6" + System.lineSeparator() +
+						"fatorial de 5 é: 120" + System.lineSeparator() +
+						"5 elevado a 2 é: 25" + System.lineSeparator() +
+						"2 elevado a 10 é: 1024"+ System.lineSeparator() +
+						"soma dos números entre 1 e 5 é: 15"+ System.lineSeparator() +
+						"soma dos números entre 2 e 10 é: 54"+ System.lineSeparator() +
+						"soma = 5.0 = 2.0+3.0"+ System.lineSeparator() +
+						"divisão = 0.6666667 = 2.0/3.0"+ System.lineSeparator() +
+						"subtração = -1.0 = 2.0-3.0"+ System.lineSeparator() +
+						"multiplicação = 6.0 = 2.0*3.0"+ System.lineSeparator())
+		};
 
 	}
 

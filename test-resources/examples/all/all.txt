@@ -23,8 +23,10 @@ int comparaFatorial (int n) {
 	return 0;
 }
 
-print(comparaFatorial(3));
-print(comparaFatorial(5));
+print("fatorial de 3 é: ");
+println(comparaFatorial(3));
+print("fatorial de 5 é: ");
+println(comparaFatorial(5));
 
 
 int potencia(int n, int p) {
@@ -34,8 +36,11 @@ int potencia(int n, int p) {
 	}
 	return resultado;
 }
-print(potencia(5, 2));
-print(potencia(2, 10));
+
+print("5 elevado a 2 é: ");
+println(potencia(5, 2));
+print("2 elevado a 10 é: ");
+println(potencia(2, 10));
 
 int somasequenciaentre (int a, int b) {
 	int soma = 0;
@@ -45,7 +50,7 @@ int somasequenciaentre (int a, int b) {
 			soma = soma + a;
 			a--;
 		}
-		print(soma);
+		println(soma);
 	}
 	else {
 		soma = a;
@@ -53,13 +58,15 @@ int somasequenciaentre (int a, int b) {
 			soma = soma + b;
 			b--;
 		}
-		print(soma);
+		println(soma);
 	}
 	return 0;
 }
 
-
+print("soma dos números entre 1 e 5 é: ");
 somasequenciaentre(1,5);
+print("soma dos números entre 2 e 10 é: ");
+somasequenciaentre(2,10);
 
 float calculadora (float a, float b, int op){
 	string operacao;
@@ -87,9 +94,14 @@ float calculadora (float a, float b, int op){
 	return 0.0;
 }
 
+
 print(calculadora(2.0, 3.0, 1));
+println(" = 2.0+3.0");
 print(calculadora(2.0, 3.0, 2));
+println(" = 2.0/3.0");
 print(calculadora(2.0, 3.0, 3));
+println(" = 2.0-3.0");
 print(calculadora(2.0, 3.0, 4));
+println(" = 2.0*3.0");
 		
 
