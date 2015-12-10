@@ -1,0 +1,62 @@
+int fatorialIterativo (int n) {
+	int a = n;
+	for(int i = 2; i<n; i++){
+		a = a*i;
+	}
+	return a;
+}
+
+int fatorialRecursivo (int n) {
+	if ( n <= 1 ) {
+		return 1;
+	}
+	return fatorialRecursivo(n-1)*n;
+}
+
+
+int comparaFatorial (int n) {
+	int fati = fatorialIterativo(n);
+	int fatr = fatorialRecursivo(n);
+	if (fati == fatr){
+		return fati;
+	}
+	return 0;
+}
+
+print(comparaFatorial(3));
+print(comparaFatorial(5));
+
+
+int potencia(int n, int p) {
+	int resultado = 1;
+	for (int cont = 0; cont<p; cont++){
+		resultado = resultado * n;
+	}
+	return resultado;
+}
+print(potencia(5, 2));
+print(potencia(2, 10));
+
+int somasequenciaentre (int a, int b) {
+	int soma = 0;
+	if (a > b) {
+		soma = b;
+		while (a > b) {
+			soma = soma + a;
+			a--;
+		}
+		print(soma);
+	}
+	else {
+		soma = a;
+		while (b > a) {
+			soma = soma + b;
+			b--;
+		}
+		print(soma);
+	}
+	return 0;
+}
+
+
+somasequenciaentre(1,5);
