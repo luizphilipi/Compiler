@@ -103,7 +103,7 @@ public class CompilerTest {
 		// evaluation performed by expected exception
 	}
 
-	@Test(expectedExceptions = IncompatibleTypeException, expectedExceptionsMessageRegExp = "1:7 incompatible type of variable: <abcde>, found INT but expected STRING")
+	@Test(expectedExceptions = IncompatibleTypeException.class, expectedExceptionsMessageRegExp = "1:7 incompatible type of variable: <abcde>, found INT but expected STRING")
 	public void compilingCode_throwsVariableIncompatibleTypes_whenDeclaringVariable()
 			throws Exception {
 		// execution
@@ -112,7 +112,7 @@ public class CompilerTest {
 		// evaluation performed by expected exception
 	}
 	
-	@Test(expectedExceptions = IncompatibleTypeException, expectedExceptionsMessageRegExp = "2:0 incompatible type of variable: <a>, found FLOAT but expected INT")
+	@Test(expectedExceptions = IncompatibleTypeException.class, expectedExceptionsMessageRegExp = "2:0 incompatible type of variable: <a>, found FLOAT but expected INT")
 	public void compilingCode_throwsVariableIncompatibleTypes_whenAssigningVariable()
 			throws Exception {
 		// execution
@@ -256,15 +256,16 @@ public class CompilerTest {
 				example("function/floatFunction", "13.5") };
 		*/
 				//example("all/power", "25" + "1024")
-				example("all/maior", "3" ),
+			//	example("all/fatorial_iterativo", "6" + "120"),
+				example("all/fatorial_recursivo", "1" + "6"),
 	
-				example("function/floatFunction", "13.5"),
+				/*example("function/floatFunction", "13.5"),
 				{
 						"teste",
 						"int maior(int a, int b){\n" + "	int maior = a;\n"
 								+ "	if(maior < b){\n" + "		maior = b;\n"
 								+ "	}\n" + "	return maior;\n" + "}\n"
-								+ "print(maior(2, 3));", "3" },
+								+ "print(maior(2, 3));", "3" },*/
 				example("function/multipleFunction", "6")};
 	}
 
