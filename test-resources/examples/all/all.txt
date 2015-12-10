@@ -62,20 +62,25 @@ int somasequenciaentre (int a, int b) {
 somasequenciaentre(1,5);
 
 float calculadora (float a, float b, int op){
+	string operacao;
 	if (op == 1) {
-		print("a soma é: ");
+		operacao = "soma = ";
+		print(operacao);
 		return a+b;	
 	}
 	if (op == 2) {
-		print("a divisão é: ");
+		operacao = "divisão = ";
+		print(operacao);
 		return a/b;	
 	}
 	if (op == 3) {
-		print("a subtração é: ");
+		operacao = "subtração = ";
+		print(operacao);
 		return a-b;	
 	}
 	if (op == 4) {
-		print("a multiplicação é: ");
+		operacao = "multiplicação = ";
+		print(operacao);
 		return a*b;	
 	}
 
@@ -87,6 +92,4 @@ print(calculadora(2.0, 3.0, 2));
 print(calculadora(2.0, 3.0, 3));
 print(calculadora(2.0, 3.0, 4));
 		
-
-
 
