@@ -111,7 +111,6 @@ public class CompilerTest {
 
 		// evaluation performed by expected exception
 	}
-
 	@Test(expectedExceptions = IncompatibleTypeException.class, expectedExceptionsMessageRegExp = "2:0 incompatible type of variable: <a>, found FLOAT but expected INT")
 	public void compilingCode_throwsVariableIncompatibleTypes_whenAssigningVariable()
 			throws Exception {
@@ -135,6 +134,7 @@ public class CompilerTest {
 	@DataProvider
 	public Object[][] provide_code_expectedText() throws Exception {
 		return new Object[][] {
+				/*
 				{ "plus", "println(1+2);", "3" + System.lineSeparator() },
 				{ "chained plus", "println(1+2+42);",
 						"45" + System.lineSeparator() },
@@ -258,6 +258,12 @@ public class CompilerTest {
 
 				example("whileStatement/while_stat", "34"),
 
+
+				example("function/floatFunction", "13.5") };
+		*/
+				//example("all/power", "25" + "1024")
+				example("all/maior", "3" ),
+	
 				example("function/floatFunction", "13.5"),
 				{
 						"teste",
